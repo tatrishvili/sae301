@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Accueil - Bubble & Glow{% endblock %}
+
+{% block body %}
+
+<section class="hero">
+    <img src="/assets/img/hero.jpg" alt="Hero image">
+    <div class="hero-content">
+        <h1> Bubble & Glow </h1>
+        <p> Institut de Beauté à Domicile </p>
+        <a href="#" class="btn">Prendre rendez-vous</a>
+    </div>
+</section>
+
+<section class="presentation">
+    <h2> Bubble & glow en quelques mots</h2>
+
+    <div class="text-img">
+        <div class="text">
+         <p> Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.  L’idée est simple : offrir toute la qualité et le confort d’un institut, mais directement chez vous. Plus besoin de vous déplacer ou de caler vos rendez-vous entre deux obligations : je viens à vous, et tout se passe dans le confort de votre foyer.
+
+             Fondé en 2024, Bubble & Glow est né de l’envie de rendre les soins esthétiques plus accessibles, plus flexibles et plus agréables pour chacun.
+
+             Manucure, pédicure, soins du visage, épilation, maquillage… chaque prestation est soigneusement pensée pour allier professionnalisme, hygiène et détente, avec une vraie attention portée à vos besoins et à votre rythme de vie.
+             Mon objectif ? Vous offrir une expérience beauté personnalisée, pratique et sereine, tout en vous permettant de profiter d’un moment pour vous, sans stress, sans déplacements et sans contraintes.
+         </p>
+        </div>
+        <img src="/assets/img/presentation.jpg" alt="presentation-image">
+    </div>
+</section>
+
+<section class="a-propos">
+    <h2> Qui je suis </h2>
+    <div class="text-img">
+        <img src="/assets/img/artisane.jpg" alt="Artisane">
+        <div class="text">
+        <p> Je m’appelle Cindy Leroux, j’ai 35 ans et je suis esthéticienne depuis plus de dix ans. Passionnée par mon métier, j’ai choisi de proposer mes prestations directement à domicile pour rendre la beauté plus simple, plus accessible et plus confortable pour chacun. Me déplacer chez mes clientes me permet d’offrir un service plus flexible, adapté aux emplois du temps chargés et aux besoins de chacun. J’accorde beaucoup d’importance à la qualité, à l’hygiène et au bien-être, et j’aime créer des moments de soin où l’on peut vraiment se détendre. Avec Bubble & Glow, mon objectif est de vous offrir l’expérience d’un institut… sans quitter votre maison.
+        </p>
+       </div>
+    </div>
+</section>
+
+<section class="services">
+   <h2> Mes services </h2>
+    <div class="services-grid">
+        <div class="service"> Soin visage corps </div>
+        <div class="service">Maquillage </div>
+        <div class="service">Manicure Pédicure </div>
+        <div class="service">Épilation</div>
+    </div>
+
+    <a href="#" class="btn"> Découvrir tout les services</a>
+</section>
+
+    <section class="rdv-section">
+        <h2>Comment prendre rendez-vous ?</h2>
+
+        <div class="rdv-container">
+
+            <div class="rdv-map">
+                <img src="/assets/img/map.png" alt="Zone d'intervention">
+                <p>Ma zone de déplacement : l’Aube</p>
+            </div>
+
+            <div class="rdv-steps">
+
+                <div class="rdv-step">
+                    <span class="step-number">1</span>
+                    <p>Choisissez votre prestation directement sur le site.</p>
+                </div>
+
+                <div class="rdv-step">
+                    <span class="step-number">2</span>
+                    <p>Découvrez mes disponibilités et sélectionnez votre créneau.</p>
+                </div>
+
+                <div class="rdv-step">
+                    <span class="step-number">3</span>
+                    <p>Recevez un message de confirmation avec les informations utiles.</p>
+                </div>
+
+                <div class="rdv-step">
+                    <span class="step-number">4</span>
+                    <p>Je me déplace directement chez vous le jour du rendez-vous.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <a href="#" class="btn rdv-btn">Prendre rendez-vous</a>
+    </section>
+
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>mail : bubble&glowcontact@gmail.fr</p>
+                <p>téléphone : 07-23-45-67-89</p>
+
+                <h4>Réseaux sociaux</h4>
+                <div class="socials">
+                    <a href="#" class="social">
+                        <img src="/assets/img/instagram.svg" alt="Instagram">
+                        bubble&glow
+                    </a>
+                    <a href="#" class="social">
+                        <img src="/assets/img/facebook.svg" alt="Facebook">
+                        bubble&glow
+                    </a>
+                </div>
+
+                <a href="#" class="btn footer-btn">Contactez-moi</a>
+            </div>
+            <div class="footer-column">
+                <h3>Prestations</h3>
+                <ul>
+                    <li>Épilation</li>
+                    <li>Soins visage & corps</li>
+                    <li>Maquillage</li>
+                    <li>Manucure & pédicure</li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>À propos</h3>
+                <ul>
+                    <li><a href="#">Qui je suis</a></li>
+                    <li><a href="#">Prendre rendez-vous</a></li>
+                    <li><a href="#">Avis clients</a></li>
+                    <li><a href="#">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">CGU</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-logo">
+            <img src="/assets/img/logo-footer.png" alt="Bubble & Glow">
+        </div>
+    </footer>
+
+{% endblock %}
