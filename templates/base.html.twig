@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %} Bubble & Glow{% endblock %}</title>
-
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     {% block styles %}{% endblock %}
 </head>
 <body>

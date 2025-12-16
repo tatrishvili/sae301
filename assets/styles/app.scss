@@ -1,0 +1,107 @@
+@use 'layout';
+@use 'mixins';
+
+body {
+    font-family: layout.$font-body;
+    color: layout.$text-dark;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: layout.$font-title;
+    font-weight: 400;
+}
+
+// Hero Section
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.75);
+    }
+
+    .hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: layout.$white;
+        z-index: 2;
+        width: 90%;
+        max-width: 800px;
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+    }
+}
+
+// Button
+.btn {
+    display: inline-block;
+    background-color: layout.$primary-color;
+    color: layout.$white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid layout.$primary-color;
+    cursor: pointer;
+
+    &:hover {
+        background-color: layout.$secondary-color;
+        border-color: layout.$secondary-color;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(143, 22, 67, 0.3);
+    }
+}
+
+// Sections: Presentation, A Propos, Services
+.presentation {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, layout.$accent-pink 0%, layout.$white 100%);
+}
+
+.presentation h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    text-align: center;
+    margin-bottom: 60px;
+    color: layout.$primary-color;
+    position: relative;
+    padding-bottom: 20px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(90deg, layout.$secondary-color, layout.$primary-color);
+    }
+}
+

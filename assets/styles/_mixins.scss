@@ -1,0 +1,13 @@
+
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin section-spacing {
+    padding: 80px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
