@@ -6,30 +6,45 @@
 {% block body %}
 
 <section class="hero">
-    <img src="/assets/img/hero.jpg" alt="Hero image">
+    <img src="{{ asset('assets/img/hero.png') }}" alt="Bubble & Glow - Institut de Beauté">
     <div class="hero-content">
         <h1> Bubble & Glow </h1>
         <p> Institut de Beauté à Domicile </p>
-        <a href="#" class="btn">Prendre rendez-vous</a>
-    </div>
-</section>
-
-<section class="presentation">
-    <h2> Bubble & glow en quelques mots</h2>
-
-    <div class="text-img">
-        <div class="text">
-         <p> Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.  L’idée est simple : offrir toute la qualité et le confort d’un institut, mais directement chez vous. Plus besoin de vous déplacer ou de caler vos rendez-vous entre deux obligations : je viens à vous, et tout se passe dans le confort de votre foyer.
-
-             Fondé en 2024, Bubble & Glow est né de l’envie de rendre les soins esthétiques plus accessibles, plus flexibles et plus agréables pour chacun.
-
-             Manucure, pédicure, soins du visage, épilation, maquillage… chaque prestation est soigneusement pensée pour allier professionnalisme, hygiène et détente, avec une vraie attention portée à vos besoins et à votre rythme de vie.
-             Mon objectif ? Vous offrir une expérience beauté personnalisée, pratique et sereine, tout en vous permettant de profiter d’un moment pour vous, sans stress, sans déplacements et sans contraintes.
-         </p>
+        <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">PRENDRE RENDEZ-VOUS</a>
+            <a href="#services" class="btn btn-secondary">VOIR LES SERVICES</a>
         </div>
-        <img src="/assets/img/presentation.jpg" alt="presentation-image">
     </div>
 </section>
+
+    <section class="presentation">
+        <h2>Bubble and glow en quelques mots</h2>
+
+        <div class="text-img">
+            <div class="text">
+                <p>
+                    Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.
+                    L'idée est simple : offrir toute la qualité et le confort d'un institut, mais directement chez vous.
+                    Plus besoin de vous déplacer ou de caler vos rendez-vous entre deux obligations : je viens à vous,
+                    et tout se passe dans le confort de votre foyer.
+                </p>
+                <p>
+                    Fondé en 2024, Bubble & Glow est né de l'envie de rendre les soins esthétiques plus accessibles,
+                    plus flexibles et plus agréables pour chacun.
+                </p>
+                <p>
+                    Manucure, pédicure, soins du visage, épilation, maquillage… chaque prestation est soigneusement
+                    pensée pour allier professionnalisme, hygiène et détente, avec une vraie attention portée à vos
+                    besoins et à votre rythme de vie.
+                </p>
+                <p>
+                    Mon objectif ? Vous offrir une expérience beauté personnalisée, pratique et sereine, tout en vous
+                    permettant de profiter d'un moment pour vous, sans stress, sans déplacements et sans contraintes.
+                </p>
+            </div>
+            <img src="{{ asset('assets/img/presentation.jpg') }}" alt="Présentation Bubble & Glow">
+        </div>
+    </section>
 
 <section class="a-propos">
     <h2> Qui je suis </h2>
@@ -93,3 +108,5 @@
     </section>
 
 {% endblock %}
+
+

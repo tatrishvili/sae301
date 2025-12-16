@@ -9,11 +9,22 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-<header>
-    <nav>
-        <a href="{{ path('app_accueil')}}">Accueil</a>
-        <a href=""> Services</a>
-        <a href=""> Blog</a>
+<header class="header">
+    <nav class="nav-container">
+        <a href="{{ path('app_accueil')}}" class="logo">
+            <img src="{{ asset('images/header-logo.svg') }}" alt="Instagram">
+        </a>
+
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="{{ path('app_accueil') }}" class="active">Accueil</a></li>
+            <li><a href="{{ path('app_service') }}">Services</a></li>
+            <li><a href="{{ path('app_blog') }}">Blog</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 </header>
 <main>

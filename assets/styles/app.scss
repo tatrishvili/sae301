@@ -1,33 +1,118 @@
 @use 'layout';
 @use 'mixins';
 
-body {
-    font-family: layout.$font-body;
-    color: layout.$text-dark;
-    line-height: 1.6;
-    overflow-x: hidden;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: layout.$accent-pink;
+    padding: 15px 5%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+
+    .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: transform 0.3s ease;
+
+        img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .nav-menu {
+        display: flex;
+        gap: 40px;
+        list-style: none;
+
+        li {
+            a {
+                font-family: layout.$font-title;
+                font-size: 1.1rem;
+                color: layout.$text-dark;
+                text-decoration: none;
+                position: relative;
+                transition: color 0.3s ease;
+                font-style: italic;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background-color: layout.$primary-color;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover {
+                    color: layout.$primary-color;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+
+                &.active {
+                    color: layout.$primary-color;
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    // Mobile menu toggle
+    .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+
+        span {
+            width: 25px;
+            height: 3px;
+            background-color: layout.$primary-color;
+            transition: all 0.3s ease;
+        }
+    }
 }
 
-h1, h2, h3 {
-    font-family: layout.$font-title;
-    font-weight: 400;
-}
-
-// Hero Section
 .hero {
     position: relative;
     height: 100vh;
     min-height: 600px;
     overflow: hidden;
+    margin-top: 0;
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.75);
+        filter: brightness(0.7);
     }
 
-    .hero-content {
+    &-content {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -39,72 +124,165 @@ h1, h2, h3 {
         max-width: 800px;
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(3rem, 7vw, 6rem);
             margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+            line-height: 1.2;
         }
 
         p {
-            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-            margin-bottom: 40px;
+            font-size: clamp(1.3rem, 2.5vw, 2rem);
+            margin-bottom: 50px;
             letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
     }
 }
 
-// Button
+// Button Styles
 .btn {
     display: inline-block;
-    background-color: layout.$primary-color;
-    color: layout.$white;
     padding: 15px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s ease;
-    border: 2px solid layout.$primary-color;
     cursor: pointer;
+    border: 2px solid transparent;
+    letter-spacing: 0.5px;
 
-    &:hover {
-        background-color: layout.$secondary-color;
-        border-color: layout.$secondary-color;
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(143, 22, 67, 0.3);
+    &-primary {
+        background-color: layout.$primary-color;
+        color: layout.$white;
+        border-color: layout.$primary-color;
+
+        &:hover {
+            background-color: layout.$secondary-color;
+            border-color: layout.$secondary-color;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(143, 22, 67, 0.4);
+        }
+    }
+
+    &-secondary {
+        background-color: transparent;
+        color: layout.$white;
+        border-color: layout.$white;
+
+        &:hover {
+            background-color: layout.$accent-peach;
+            border-color: layout.$accent-peach;
+            color: layout.$text-dark;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 200, 155, 0.4);
+        }
     }
 }
 
-// Sections: Presentation, A Propos, Services
-.presentation {
-    padding: 80px 5%;
-    max-width: 1400px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, layout.$accent-pink 0%, layout.$white 100%);
-}
-
-.presentation h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    text-align: center;
-    margin-bottom: 60px;
-    color: layout.$primary-color;
-    position: relative;
-    padding-bottom: 20px;
-
-    &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 3px;
-        background: linear-gradient(90deg, layout.$secondary-color, layout.$primary-color);
-    }
-    p{
-        color: layout.$text-dark;
+// Responsive Design
+@media (max-width: 992px) {
+    .header {
+        .nav-menu {
+            gap: 25px;
+        }
     }
 }
 
+@media (max-width: 768px) {
+    .header {
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 100%;
+            height: calc(100vh - 70px);
+            background-color: layout.$accent-pink;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 40px 0;
+            gap: 0;
+            transition: left 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+
+            &.active {
+                left: 0;
+            }
+
+            li {
+                width: 100%;
+                text-align: center;
+                padding: 20px 0;
+                border-bottom: 1px solid rgba(143, 22, 67, 0.1);
+            }
+        }
+
+        .menu-toggle {
+            display: flex;
+
+            &.active {
+                span:nth-child(1) {
+                    transform: rotate(45deg) translate(8px, 8px);
+                }
+
+                span:nth-child(2) {
+                    opacity: 0;
+                }
+
+                span:nth-child(3) {
+                    transform: rotate(-45deg) translate(7px, -7px);
+                }
+            }
+        }
+    }
+
+    .hero {
+        height: 70vh;
+
+        &-content {
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+
+                .btn {
+                    width: 100%;
+                    max-width: 300px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 15px 5%;
+
+        .logo {
+            font-size: 1.5rem;
+        }
+    }
+
+    .hero-content {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 0.9rem;
+    }
+}
