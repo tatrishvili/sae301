@@ -103,5 +103,8 @@ h1, h2, h3 {
         height: 3px;
         background: linear-gradient(90deg, layout.$secondary-color, layout.$primary-color);
     }
+    p{
+        color: layout.$text-dark;
+    }
 }
 

@@ -94,5 +94,8 @@ h1, h2, h3 {
   height: 3px;
   background: linear-gradient(90deg, #A73760, #8F1643);
 }
+.presentation h2 p {
+  color: #450A20;
+}
 
 /*# sourceMappingURL=app.css.map */
