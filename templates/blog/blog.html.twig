@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog - Bubble & Glow{% endblock %}
+
+{% block body %}
+    <main>
+        <section class="latest-news">
+            <div class="section-title-container">
+                <h2 class="section-title">Dernières actualités</h2>
+            </div>
+
+            <div class="latest-news__grid">
+                {# Paths updated to /blog/ folder #}
+                <img src="{{ asset('images/blog/1.jpg') }}" alt="Soin visage" class="latest-news__item">
+                <img src="{{ asset('images/blog/2.jpg') }}" alt="Maquillage éclatant" class="latest-news__item">
+                <img src="{{ asset('images/blog/3.jpg') }}" alt="Soin détente" class="latest-news__item">
+                <img src="{{ asset('images/blog/4.jpg') }}" alt="Produits cosmétiques" class="latest-news__item">
+                <img src="{{ asset('images/blog/5.jpg') }}" alt="Produit soin" class="latest-news__item">
+            </div>
+        </section>
+
+        <section class="my-tips">
+            <div class="section-title-container section-title-container--dark">
+                <h2 class="section-title section-title--dark">Mes derniers conseils</h2>
+            </div>
+
+            {# --- Category: Soins --- #}
+            <div class="category">
+                <div class="category__header">
+                    <img src="{{ asset('images/blog/picto1.svg') }}" alt="Icône Soins" class="category__icon">
+                    <h3 class="category__title">Soins corps & visage</h3>
+                </div>
+                <div class="category__grid">
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/6.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/7.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/8.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+
+            {# --- Category: Maquillage --- #}
+            <div class="category">
+                <div class="category__header">
+                    <img src="{{ asset('images/blog/picto2.svg') }}" alt="Icône Maquillage" class="category__icon">
+                    <h3 class="category__title">Maquillage</h3>
+                </div>
+                <div class="category__grid">
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/9.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/10.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/11.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+
+            {# --- Category: Manucure --- #}
+            <div class="category">
+                <div class="category__header">
+                    <img src="{{ asset('images/blog/picto3.svg') }}" alt="Icône Manucure" class="category__icon">
+                    <h3 class="category__title">Manucure & pédicure</h3>
+                </div>
+                <div class="category__grid">
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/12.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/13.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/14.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+
+            {# --- Category: Épilation --- #}
+            <div class="category">
+                <div class="category__header">
+                    <img src="{{ asset('images/blog/picto4.svg') }}" alt="Icône Épilation" class="category__icon">
+                    <h3 class="category__title">Épilation</h3>
+                </div>
+                <div class="category__grid">
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/15.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/16.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                    <div class="category__card">
+                        <img src="{{ asset('images/blog/17.jpg') }}" class="category__image">
+                        <a href="#" class="category__link">Voir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

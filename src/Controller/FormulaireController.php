@@ -6,13 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class BlogController extends AbstractController
+final class FormulaireController extends AbstractController
 {
-    #[Route('/blog', name: 'app_blog')]
+    #[Route('/formulaire', name: 'app_formulaire')]
     public function index(): Response
     {
-        return $this->render('blog/blog.html.twig', [
-            'controller_name' => 'BlogController',
+        return $this->render('formulaire/formulaire.html.twig', [
+            'page_title' => 'Formulaire',
         ]);
     }
 }

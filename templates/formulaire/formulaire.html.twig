@@ -1,0 +1,165 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation - Bubble & Glow{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {# We keep your custom fonts here #}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="reservation-page-content">
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo">
+                    {# Fixed path to match your actual images folder #}
+                    <img src="{{ asset('images/formulaire/logo.svg') }}" class="bubble" alt="logo">
+                </div>
+                <div class="brand-name">BUBBLE & GLOW</div>
+            </div>
+
+            <div class="progress-bar">
+                {% for i, step in [ 'Informations', 'Créneau', 'Adresse', 'Paiement'] %}
+                    <div class="progress-step {{ i == 0 ? 'active' : '' }}" data-step="{{ i+1 }}">
+                        <span>{{ step }}</span>
+                        <div class="progress-line"><div class="progress-line-fill"></div></div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <form id="reservationForm" onsubmit="event.preventDefault();">
+                <div class="form-step active" data-step="1">
+                    <h2>Vos informations</h2>
+                    <div class="form-group">
+                        <input type="text" id="nom" placeholder="NOM" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="prenom" placeholder="PRÉNOM" required>
+                    </div>
+                    <div class="form-group">
+                        <div class="phone-group">
+                            <input type="text" class="phone-prefix" value="+33" readonly>
+                            <input type="tel" id="telephone" placeholder="NUMÉRO DE TÉLÉPHONE" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="ADRESSE MAIL" required>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="2">
+                    <h2>Prestation souhaitée</h2>
+                    <div id="servicesContainer">
+                        <div class="form-group service-item">
+                            <div class="service-selector">
+                                <select class="prestation" required>
+                                    <option value="">Choisissez une prestation</option>
+                                    <option value="manucure">MANUCURE</option>
+                                    <option value="pedicure">PÉDICURE</option>
+                                    <option value="soin-visage">SOIN VISAGE</option>
+                                    <option value="maquillage">MAQUILLAGE</option>
+                                    <option value="soin-corps">SOIN CORPS</option>
+                                    <option value="epilation">ÉPILATION</option>
+                                </select>
+                                <button type="button" class="add-btn">+</button>
+                                <button type="button" class="remove-btn">-</button>
+                            </div>
+                            <input type="text" class="precision" placeholder="Précisions (optionnel)">
+                        </div>
+                    </div>
+
+                    <h2>Choisir une date</h2>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button type="button" class="calendar-nav" id="prevMonth">◄</button>
+                            <h3 id="currentMonthYear">Décembre 2025</h3>
+                            <button type="button" class="calendar-nav" id="nextMonth">►</button>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <select class="time-selector" id="horaire" required>
+                            <option value="9h00-10h30">9h00-10h30</option>
+                            <option value="11h00-12h30">11h00-12h30</option>
+                            <option value="14h00-15h30">14h00-15h30</option>
+                            <option value="15h30-17h00">15h30-17h00</option>
+                            <option value="17h30-19h00">17h30-19h00</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="3">
+                    <h2>Votre adresse</h2>
+                    <div class="form-group">
+                        <label>Adresse*</label>
+                        <input type="text" id="adresse" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Complément d'adresse</label>
+                        <input type="text" id="complement" placeholder="Étage, bâtiment...">
+                    </div>
+                    <div class="two-cols">
+                        <div class="form-group">
+                            <label>Code postal*</label>
+                            <input type="text" id="codePostal" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Ville*</label>
+                            <input type="text" id="ville" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-step" data-step="4">
+                    <h2>Récapitulatif</h2>
+                    <div class="summary-section">
+                        <div class="summary-line" id="summaryName"></div>
+                        <div class="summary-line" id="summaryPhone"></div>
+                        <div class="summary-line" id="summaryEmail"></div>
+                        <div class="summary-line" id="summaryBooking"></div>
+                        <div class="summary-line" id="summaryAddress"></div>
+                    </div>
+                    <div id="pricesContainer"></div>
+                    <div class="price-line" style="font-size:1.5em; font-weight:bold;">
+                        <span>Total</span>
+                        <span id="totalPrice">0€</span>
+                    </div>
+
+                    <h2>Paiement</h2>
+                    <div class="payment-card">
+                        <div class="form-group">
+                            <label>Numéro de carte</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="two-cols">
+                            <div class="form-group">
+                                <label>Expiration</label>
+                                <input type="text" placeholder="MM/AA" maxlength="5">
+                            </div>
+                            <div class="form-group">
+                                <label>CVC</label>
+                                <input type="text" placeholder="123" maxlength="3">
+                            </div>
+                        </div>
+                        <button type="button" class="validate-btn">Valider le paiement</button>
+                        <p id="paymentMessage" class="payment-message"></p>
+                    </div>
+                </div>
+
+                <div class="navigation">
+                    <button type="button" class="nav-btn" id="prevBtn" disabled>←</button>
+                    <button type="button" class="nav-btn" id="nextBtn">→</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/script.js') }}"></script>
+{% endblock %}
+
