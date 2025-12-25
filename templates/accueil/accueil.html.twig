@@ -3,8 +3,6 @@
 {% block title %}Accueil - Bubble & Glow{% endblock %}
 
 {% block body %}
-
-    <!-- ================= HERO ================= -->
     <section class="hero">
         <div class="hero-content">
             <h1>Bubble & Glow</h1>
@@ -17,11 +15,17 @@
         </div>
     </section>
 
-    <!-- ================= PRESENTATION ================= -->
-    <section class="presentation">
+    <section class="presentation" style="padding-top: 0;">
+        <div class="section-header-dark">
+            <h2>Bubble & Glow en quelques mots</h2>
+        </div>
+
+        <div class="image-as-title">
+            <img src="{{ asset('images/presentation-title.svg') }}" alt="logo-titre">
+        </div>
+
         <div class="text-img">
             <div class="text">
-                <h2>Bubble & Glow en quelques mots</h2>
                 <p>
                     Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.
                     L'idée est simple : offrir toute la qualité et le confort d'un institut, directement chez vous.
@@ -41,19 +45,23 @@
             <div class="image">
                 <img src="{{ asset('images/presentation-image.png') }}" alt="Produits de beauté Bubble & Glow">
             </div>
+            <div class="little-decorations">
+                <img src="{{ asset('images/bubbles.svg') }}" alt="bubbles">
+            </div>
         </div>
     </section>
 
-    <!-- ================= A PROPOS ================= -->
-    <section class="a-propos">
+    <section class="a-propos" style="padding-top: 0;">
+        <div class="section-header-dark">
+            <h2>Qui je suis</h2>
+        </div>
+
         <div class="text-img">
             <div class="image">
                 <img src="{{ asset('images/photo-artisan.png') }}" alt="Cindy Leroux">
             </div>
 
             <div class="text">
-                <h2>Qui je suis</h2>
-
                 <p>
                     Je m’appelle Cindy Leroux, j’ai 35 ans et je suis esthéticienne depuis plus de dix ans.
                     Passionnée par mon métier, j’ai choisi de proposer mes prestations directement à domicile.
@@ -80,7 +88,6 @@
     </section>
 
 
-    <!-- ================= SERVICES ================= -->
     <section class="services" id="services">
         <div class="section-header-dark">
             <h2>Mes services</h2>
@@ -88,44 +95,41 @@
 
         <div class="services-grid">
             <div class="service">
-                <img src="{{ asset('images/picto1.svg') }}" alt="">
+                <img src="{{ asset('images/soins.svg') }}" alt="">
                 <p>Soin visage & corps</p>
             </div>
 
             <div class="service">
-                <img src="{{ asset('images/picto2.svg') }}" alt="">
+                <img src="{{ asset('images/maquillage.svg') }}" alt="">
                 <p>Maquillage</p>
             </div>
 
             <div class="service">
-                <img src="{{ asset('images/picto3.svg') }}" alt="">
+                <img src="{{ asset('images/manucure.svg') }}" alt="">
                 <p>Manucure & pédicure</p>
             </div>
 
             <div class="service">
-                <img src="{{ asset('images/picto4.svg') }}" alt="">
+                <img src="{{ asset('images/epilation.svg') }}" alt="">
                 <p>Épilation</p>
             </div>
         </div>
 
-        <a href="#" class="btn btn-dark">Découvrir tous les soins</a>
+        <a href="#" class="btn footer-btn">Découvrir tous les soins</a>
     </section>
 
-    <!-- ================= RDV ================= -->
     <section class="rdv-section" id="rdv">
         <div class="section-header-dark">
             <h2>Comment prendre rendez-vous ?</h2>
         </div>
 
         <div class="rdv-container">
-            <!-- MAP -->
             <div class="rdv-map">
                 <img src="{{ asset('images/map-text.png') }}" alt="Bubble & Glow" class="map-logo">
                 <img src="{{ asset('images/map-aube.png') }}" alt="Zone de déplacement : Aube">
                 <p class="zone-text">Ma zone de déplacement : L’Aube</p>
             </div>
 
-            <!-- STEPS -->
             <div class="rdv-steps">
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape1.png') }}" class="step-icon" alt="">
@@ -166,7 +170,6 @@
         </div>
     </section>
 
-    <!-- ================= ACTUALITÉS ================= -->
     <section class="actualites">
         <div class="section-header-dark">
             <h2>Les dernières actualités</h2>
@@ -215,7 +218,6 @@
         </div>
     </section>
 
-    <!-- ================= AVIS ================= -->
     <section class="avis-clients">
         <div class="section-header-dark">
             <h2>Avis clients</h2>
@@ -249,4 +251,3 @@
     </section>
 
 {% endblock %}
-

@@ -3,9 +3,8 @@
 @use 'formulaire';
 
 /* =====================
-   RESET / BASE
+   GLOBAL RESET
 ===================== */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -31,23 +30,22 @@ img {
 }
 
 /* =====================
-   BUTTON SYSTEM
+   BUTTONS
 ===================== */
-/* Base button */
 .btn {
     display: inline-block;
-    padding: 12px 30px;
+    padding: 20px 35px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     cursor: pointer;
     border: none;
+    background-color: #A73760;
+    color: layout.$white;
 }
 
-
-
-.btn--outline1{
+.btn--outline1 {
     background-color: layout.$accent-rose;
     color: layout.$text-dark;
     text-transform: uppercase;
@@ -58,32 +56,29 @@ img {
         color: white;
     }
 }
+
 .btn--outline {
     border: 2px solid layout.$white;
     background: transparent;
     color: layout.$white;
     text-transform: uppercase;
     font-weight: bold;
-
     &:hover {
         background-color: layout.$white;
         color: layout.$primary-color;
     }
 }
 
-/* Dark buttons (used in news cards, "En savoir plus", etc.) */
 .btn--dark {
-    background-color: #3b0a1a; // dark burgundy
+    background-color: #3b0a1a;
     color: layout.$white;
     padding: 12px 30px;
     text-transform: none;
-
     &:hover {
         transform: scale(1.05);
         background-color: darken(#3b0a1a, 5%);
     }
 }
-
 
 .btn-rdv {
     background-color: layout.$accent-rose;
@@ -93,13 +88,14 @@ img {
     border-radius: 50px;
     text-transform: none;
     font-weight: 600;
-
     &:hover {
         transform: scale(1.05);
         background-color: darken(layout.$accent-rose, 5%);
     }
-}/* =====================
-   HEADER & HERO
+}
+
+/* =====================
+   HEADER
 ===================== */
 .header {
     background-color: layout.$accent-pink;
@@ -107,41 +103,40 @@ img {
     position: sticky;
     top: 0;
     z-index: 1000;
-}
 
-.nav-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-}
+    .nav-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-left: 115px;
+        max-width: 1400px;
+        gap: 200px;
+    }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 60px;
-    a { text-decoration: none; color: layout.$text-dark; font-family: layout.$font-title; font-size: 1.4rem; }
-}
+    .logo img {
+        height: 70px;
+        width: auto;
+    }
 
-.hero {
-    height: 85vh;
-    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../images/hero.png') center/cover;
-    display: flex;
-    align-items: center;
-    padding-left: 8%;
-    .hero-content {
-        h1 { font-size: 5.5rem; color: layout.$white; }
-        p { font-size: 1.8rem; color: layout.$white; margin: 10px 0 40px; }
-        .hero-buttons { display: flex; gap: 20px; }
+    .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 60px;
+        a {
+            text-decoration: none;
+            color: layout.$text-dark;
+            font-family: layout.$font-title;
+            font-size: 1.4rem;
+            transition: color 0.3s ease;
+            &:hover { color: layout.$primary-color; }
+        }
     }
 }
 
-// Slimmer version of your button for the header
 .btn-header-cta {
     background-color: layout.$primary-color;
     color: white !important;
-    padding: 8px 25px;       // Much smaller than before
+    padding: 8px 25px;
     border-radius: 50px;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -150,7 +145,6 @@ img {
 /* =====================
    HERO
 ===================== */
-
 .hero {
     height: 85vh;
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../images/hero.png');
@@ -170,12 +164,11 @@ img {
 /* =====================
    SECTION HEADERS (FULL WIDTH)
 ===================== */
-
 .section-header-dark {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     background-color: layout.$primary-color;
-    padding: 35px 0; // Increased height as requested
+    padding: 35px 0;
     text-align: center;
     margin-bottom: 60px;
 
@@ -190,8 +183,9 @@ img {
 /* =====================
    TEXT-IMAGE BLOCKS
 ===================== */
-
-section { padding: 80px 10%; }
+section {
+    padding: 80px 10%;
+}
 
 .text-img {
     display: flex;
@@ -202,10 +196,13 @@ section { padding: 80px 10%; }
 
     .text {
         flex: 1;
-        h2 { color: layout.$primary-color; font-size: 2.5rem; margin-bottom: 25px; }
+        /* Note: h2 removed from here because it's now in .section-header-dark */
         p { margin-bottom: 20px; }
     }
-    .image { flex: 1; img { border-radius: 20px; width: 100%; } }
+    .image {
+        flex: 1;
+        img { border-radius: 20px; width: 100%; }
+    }
 }
 
 /* A PROPOS SPECIFIC */
@@ -223,8 +220,7 @@ section { padding: 80px 10%; }
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1rem; // Scaled down to not be "too big"
-
+            font-size: 1rem;
             img {
                 width: 25px;
                 height: auto;
@@ -236,7 +232,6 @@ section { padding: 80px 10%; }
 /* =====================
    SERVICES
 ===================== */
-
 .services {
     background-color: layout.$accent-pink;
     text-align: center;
@@ -256,16 +251,15 @@ section { padding: 80px 10%; }
 }
 
 /* =====================
-   ACTUALITES (2x2 GRID)
+   ACTUALITES
 ===================== */
-
 .actualites {
     background-color: layout.$white;
     padding-top: 0;
 
     .news-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); // 2x2 Layout
+        grid-template-columns: repeat(2, 1fr);
         gap: 40px;
         max-width: 1100px;
         margin: 0 auto 50px;
@@ -277,9 +271,7 @@ section { padding: 80px 10%; }
         overflow: hidden;
         text-align: center;
         padding-bottom: 25px;
-
-        &.border-blue { border: 4px solid #3498db; } // Border feature from image
-
+        &.border-blue { border: 4px solid #3498db; }
         img { width: 100%; height: 260px; object-fit: cover; }
         .news-content {
             padding: 20px;
@@ -287,49 +279,43 @@ section { padding: 80px 10%; }
             h3 { font-size: 1.2rem; margin-bottom: 20px; min-height: 3rem; }
         }
     }
-
     .center-btn { display: flex; justify-content: center; }
 }
 
 /* =====================
-   AVIS CLIENTS (CHECKERBOARD)
+   AVIS CLIENTS
 ===================== */
-
 .avis-clients {
-    background-color: layout.$white;
-    padding-top: 0;
+    padding-top: 0; /* Let the header dark bar touch the top */
+}
 
-    .checkerboard-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        max-width: 1200px;
-        margin: 0 auto;
+.checkerboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
 
-        .review-text {
-            background-color: layout.$primary-color;
-            color: layout.$white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 50px;
-            text-align: center;
-            aspect-ratio: 1 / 1; // Perfect Square
+    .review-text {
+        background-color: layout.$primary-color;
+        color: layout.$white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 60px;
+        text-align: center;
+        h4 { margin-bottom: 15px; font-size: 1.5rem; color: white !important; }
+        .stars { color: layout.$accent-peach; margin-top: 15px; font-size: 1.2rem; }
+    }
 
-            h4 { font-size: 1.5rem; margin-bottom: 15px; font-weight: bold; color:white; }
-            p { font-style: italic; line-height: 1.5; max-width: 320px; }
-            .stars-png { width: 140px; margin-top: 25px; }
-        }
-
-        .review-img {
-            aspect-ratio: 1 / 1;
-            img { width: 100%; height: 100%; object-fit: cover; }
-        }
+    .review-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
 /* =====================
-   RDV SECTION (RESTORING PREVIOUS LAYOUT)
+   RDV SECTION
 ===================== */
 .rdv-section {
     background-color: layout.$white;
@@ -365,26 +351,59 @@ section { padding: 80px 10%; }
         align-items: center;
         gap: 20px;
         .step-icon { width: 85px; flex-shrink: 0; }
-        .st-text h4 { color: layout.$accent-rose; font-weight: bold; margin-bottom: 5px; }
-        .st-text p { font-size: 0.9rem; }
+        .step-text h4 { color: layout.$accent-rose; font-weight: bold; margin-bottom: 5px; }
+        .step-text p { font-size: 0.9rem; }
     }
     .center-btn { display: flex; justify-content: center; margin-top: 40px; }
 }
+
+/* =====================
+   FOOTER
+===================== */
 .footer {
     background-color: layout.$accent-pink;
-    padding: 60px 10% 40px;
-    .footer-container { display: flex; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+    padding: 60px 10% 20px;
+    border-top: 1px solid rgba(143, 22, 67, 0.1);
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
     .footer-column {
         flex: 1;
-        h3 { color: layout.$primary-color; margin-bottom: 25px; }
-        .socials {
-            display: flex; flex-direction: column; gap: 12px; margin: 20px 0;
-            .social { display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; img { width: 22px; } }
+        min-width: 250px;
+        h3, h4 { color: layout.$primary-color; margin-bottom: 20px; }
+        p, li { font-size: 0.9rem; margin-bottom: 10px; }
+        ul { list-style: none; a { text-decoration: none; color: inherit; } }
+    }
+
+    .socials {
+        display: flex;
+        gap: 20px;
+        margin: 20px 0;
+        .social {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: layout.$text-dark;
+            img { width: 24px; }
         }
     }
-    .footer-logo { display: flex; justify-content: flex-end; margin-top: 50px; img { height: 70px; } }
+
+    .footer-btn { background-color: layout.$primary-color; color: layout.$white; margin-top: 20px; }
+
+    .footer-logo {
+        margin-top: 50px;
+        text-align: right;
+        img { height: 60px; margin-left: auto; }
+    }
 }
 
-h4{
+/* Target global h4 color specifically for non-review sections */
+h4 {
     color: #e05184;
 }
