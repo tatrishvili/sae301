@@ -19,11 +19,10 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+ h2, h3, h4 {
     font-family: layout.$font-title;
     font-weight: normal;
 }
-
 img {
     max-width: 100%;
     display: block;
@@ -125,7 +124,7 @@ img {
         a {
             text-decoration: none;
             color: layout.$text-dark;
-            font-family: layout.$font-title;
+            font-family: layout.$font-heading;
             font-size: 1.4rem;
             transition: color 0.3s ease;
             &:hover { color: layout.$primary-color; }
@@ -153,12 +152,6 @@ img {
     display: flex;
     align-items: center;
     padding-left: 8%;
-}
-
-.hero-content {
-    h1 { font-size: 5.5rem; color: layout.$white; line-height: 1.1; }
-    p { font-size: 1.8rem; color: layout.$white; margin: 10px 0 40px; }
-    .hero-buttons { display: flex; gap: 20px; }
 }
 
 /* =====================
@@ -402,8 +395,12 @@ section {
         img { height: 60px; margin-left: auto; }
     }
 }
-
-/* Target global h4 color specifically for non-review sections */
 h4 {
     color: #e05184;
+}
+
+.hero-content {
+    h1 { font-size: 5rem; line-height: 1.1; color: #FFE5D9 !important; font-family: layout.$font-heading;}
+    p { font-size: 1.8rem; color: layout.$white; margin: 10px 0 40px; }
+    .hero-buttons { display: flex; gap: 20px; }
 }

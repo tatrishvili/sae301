@@ -1,5 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=ZT+Nature:wght@300;400;500;700&display=swap");
+@font-face {
+  font-family: "ZT Nature";
+  src: url("../fonts/ZTNature-Thin.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ZT Nature";
+  src: url("../fonts/ZTNature-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ZT Nature";
+  src: url("../fonts/ZTNature-Black.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Shrikhand";
+  src: url("../fonts/Shrikhand-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
 /* =====================
    BLOG SPECIFIC STYLES
 ===================== */
@@ -421,7 +443,7 @@ img {
 .header .nav-menu a {
   text-decoration: none;
   color: #450A20;
-  font-family: "ZT Nature", sans-serif;
+  font-family: "Shrikhand", sans-serif;
   font-size: 1.4rem;
   transition: color 0.3s ease;
 }
