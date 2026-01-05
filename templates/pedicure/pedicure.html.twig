@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bubble Glow - Pédicure{% endblock %}
+
+{% block body %}
+    <main class="prestation-detail">
+
+        <div class="container-nav">
+            <a href="{{ path('app_service') }}" class="back-link">
+                <span class="arrow">←</span> Toutes les prestations
+            </a>
+        </div>
+
+        <section class="prestation-hero">
+            <div class="prestation-hero__content">
+                <span class="category-tag">Onglerie</span>
+                <h1 class="prestation-hero__title">Pédicure</h1>
+                <p class="prestation-hero__subtitle">
+                    Offrez à vos pieds une pause détente et une esthétique parfaite.
+                </p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-hero-book">
+                    Réserver ce soin
+                </a>
+            </div>
+
+            <div class="prestation-hero__image">
+                <img
+                    src="{{ asset('images/services/pedicureinstitut.jpg') }}"
+                    alt="Pédicure"
+                >
+            </div>
+        </section>
+
+        <section class="prestation-info container">
+            <div class="prestation-info__text">
+                <h3 class="side-title">L'expertise Bubble Glow</h3>
+                <p>
+                    Un soin revitalisant pour vos pieds incluant gommage et hydratation profonde.
+                </p>
+
+                <ul class="features-list">
+                    <li>Bain de pieds relaxant</li>
+                    <li>Râpage des callosités</li>
+                    <li>Modelage hydratant</li>
+                </ul>
+            </div>
+
+            <div class="prestation-info__prices">
+                <h3 class="side-title">Tarifs</h3>
+
+                <div class="price-list">
+                    <div class="price-item"><p>Soin des pieds express</p> <span>30€</span></div>
+                    <div class="price-item"><p>Pédicure complète</p> <span>45€</span></div>
+                    <div class="price-item"><p>Option Vernis</p> <span>+10€</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prestation-gallery container">
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/pedicurespa.jpg') }}" alt="Détail soin">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/pedicure-ongles.jpg') }}" alt="Ambiance cabine">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/pedicure.jpg') }}" alt="Produits utilisés">
+            </div>
+        </section>
+
+        <section class="prestation-cta">
+            <div class="cta-box">
+                <h2>Prête pour votre moment bien-être ?</h2>
+                <p>Réservez votre créneau en quelques clics.</p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-reservation">
+                    Réserver ma séance
+                </a>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

@@ -12,7 +12,7 @@ final class BlogController extends AbstractController
     public function index(): Response
     {
         return $this->render('blog/blog.html.twig', [
-            'controller_name' => 'BlogController',
+            'page_title' => 'Blog',
         ]);
     }
 }

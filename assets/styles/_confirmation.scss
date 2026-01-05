@@ -1,0 +1,42 @@
+@use 'layout';
+
+.confirmation-container {
+    background: layout.$white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.confirmation-container h1 {
+    font-family: 'Shrikhand', cursive;
+    font-size: 28px;
+    color: layout.$primary-color;
+    margin-bottom: 20px;
+}
+
+.confirmation-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.confirmation-container a {
+    text-decoration: none;
+    background: layout.$secondary-color;
+    color: layout.$white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.confirmation-container a:hover {
+    background: layout.$accent-rose
+}
+
+.checkmark {
+    font-size: 50px;
+    color: layout.$primary-color;
+    margin-bottom: 20px;
+}

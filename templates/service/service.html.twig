@@ -1,20 +1,78 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ServiceController!{% endblock %}
-
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
 
-    <div class="example-wrapper">
-        <h1>Hello {{ page_title }}! </h1>
+    <section class="prestations">
+        <div class="prestations-container">
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code>/var/www/sae301/src/Controller/ServiceController.php</code></li>
-            <li>Your template at <code>/var/www/sae301/templates/service/service.html.twig</code></li>
-        </ul>
-    </div>
+            <header class="prestations-title">
+                <h1>Prestations</h1>
+            </header>
+
+            <div class="prestations-grid">
+
+                <a href="{{ path('app_epilation') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/epilation-copie.jpg') }}" alt="Épilation">
+                    </div>
+                    <h3 class="prestation-title">Épilation</h3>
+                    <p class="prestation-desc">
+                        Épilation professionnelle et précise de toutes les zones, chez vous.
+                    </p>
+                </a>
+
+                <a href="{{ path('app_soin_visage') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/soin-visage.jpg') }}" alt="Soin Visage">
+                    </div>
+                    <h3 class="prestation-title">Soin Visage</h3>
+                    <p class="prestation-desc">
+                        Un moment de relaxation et de bien-être à domicile.
+                    </p>
+                </a>
+
+                <a href="{{ path('app_manucure') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/manucure3.jpg') }}" alt="Manucure">
+                    </div>
+                    <h3 class="prestation-title">Manucure</h3>
+                    <p class="prestation-desc">
+                        Mise en beauté et soin des ongles à domicile.
+                    </p>
+                </a>
+
+                <a href="{{ path('app_pedicure') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/pedicure-ongles.jpg') }}" alt="Pédicure">
+                    </div>
+                    <h3 class="prestation-title">Pédicure</h3>
+                    <p class="prestation-desc">
+                        Détente et esthétique pour des pieds impeccables.
+                    </p>
+                </a>
+
+                <a href="{{ path('app_maquillage') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/maquillage.jpg') }}" alt="Maquillage">
+                    </div>
+                    <h3 class="prestation-title">Maquillage</h3>
+                    <p class="prestation-desc">
+                        Mise en beauté pour toutes les occasions.
+                    </p>
+                </a>
+
+                <a href="{{ path('app_soin_corps') }}" class="prestation">
+                    <div class="prestation-img">
+                        <img src="{{ asset('images/services/soin-corps.jpg') }}" alt="Soin Corps">
+                    </div>
+                    <h3 class="prestation-title">Soins Corps</h3>
+                    <p class="prestation-desc">
+                        Soins relaxants et revitalisants à domicile.
+                    </p>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
 {% endblock %}

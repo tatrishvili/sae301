@@ -1,0 +1,14 @@
+{# templates/reservation/confirmation.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation - Bubble & Glow{% endblock %}
+
+{% block body %}
+    <div class="confirmation-container">
+        <div class="checkmark">✔</div>
+        <h1>Merci !</h1>
+        <p>Votre réservation a bien été prise en compte.<br>
+            Nous reviendrons vers vous très prochainement pour confirmer votre rendez-vous.</p>
+        <a href="{{ path('app_accueil') }}">Retour à l’accueil</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bubble Glow - Soin Visage{% endblock %}
+
+{% block body %}
+    <main class="prestation-detail">
+
+        <div class="container-nav">
+            <a href="{{ path('app_service') }}" class="back-link">
+                <span class="arrow">←</span> Toutes les prestations
+            </a>
+        </div>
+
+        <section class="prestation-hero">
+            <div class="prestation-hero__content">
+                <span class="category-tag">Soins Corps & Visage</span>
+                <h1 class="prestation-hero__title">Soin Visage</h1>
+                <p class="prestation-hero__subtitle">
+                    Retrouvez un teint éclatant et une peau repulpée grâce à nos rituels de soin sur-mesure.
+                </p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-hero-book">
+                    Réserver ce soin
+                </a>
+            </div>
+
+            <div class="prestation-hero__image">
+                <img src="{{ asset('images/services/soinvisage.jpg') }}" alt="Soin Visage">
+            </div>
+        </section>
+
+        <section class="prestation-info container">
+            <div class="prestation-info__text">
+                <h3 class="side-title">L'expertise Bubble Glow</h3>
+                <p>
+                    Chaque visage est unique. Nous analysons votre type de peau pour adapter nos produits et nos techniques de massage facial.
+                </p>
+
+                <ul class="features-list">
+                    <li>Diagnostic de peau personnalisé</li>
+                    <li>Produits naturels et sensoriels</li>
+                    <li>Massage lymphatique inclus</li>
+                </ul>
+            </div>
+
+            <div class="prestation-info__prices">
+                <h3 class="side-title">Tarifs</h3>
+
+                <div class="price-list">
+                    <div class="price-item"><p>Soin Éclat (30 min)</p> <span>35€</span></div>
+                    <div class="price-item"><p>Soin Purifiant</p> <span>50€</span></div>
+                    <div class="price-item"><p>Rituel Anti-Âge</p> <span>65€</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prestation-gallery container">
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soinvisage2.jpg') }}" alt="Détail soin">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soinvisage1.jpg') }}" alt="Ambiance cabine">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soinvisage3.jpg') }}" alt="Produits utilisés">
+            </div>
+        </section>
+
+        <section class="prestation-cta">
+            <div class="cta-box">
+                <h2>Prête pour votre moment bien-être ?</h2>
+                <p>Réservez votre créneau en quelques clics.</p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-reservation">
+                    Réserver ma séance
+                </a>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

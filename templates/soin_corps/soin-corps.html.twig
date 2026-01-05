@@ -1,0 +1,83 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bubble Glow - Soin Corps{% endblock %}
+
+{% block body %}
+    <main class="prestation-detail">
+
+        <div class="container-nav">
+            <a href="{{ path('app_service') }}" class="back-link">
+                <span class="arrow">←</span> Toutes les prestations
+            </a>
+        </div>
+        <section class="prestation-hero">
+            <div class="prestation-hero__content">
+                <span class="category-tag">Soins Corps & Visage</span>
+                <h1 class="prestation-hero__title">Soin Corps</h1>
+                <p class="prestation-hero__subtitle">
+                    Une évasion sensorielle pour libérer les tensions et adoucir votre peau.
+                </p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-hero-book">
+                    Réserver ce soin
+                </a>
+            </div>
+
+            <div class="prestation-hero__image">
+                <img
+                    src="{{ asset('images/services/soin-corps.jpg') }}"
+                    alt="Soin Corps"
+                >
+            </div>
+        </section>
+
+        <section class="prestation-info container">
+            <div class="prestation-info__text">
+                <h3 class="side-title">L'expertise Bubble Glow</h3>
+                <p>
+                    Des gommages et massages enveloppants pour un moment de relaxation absolue à domicile.
+                </p>
+
+                <ul class="features-list">
+                    <li>Gommage au sucre et huiles</li>
+                    <li>Massage Californien relaxant</li>
+                    <li>Enveloppement hydratant</li>
+                </ul>
+            </div>
+
+            <div class="prestation-info__prices">
+                <h3 class="side-title">Tarifs</h3>
+
+                <div class="price-list">
+                    <div class="price-item"><p>Gommage corps</p> <span>40€</span></div>
+                    <div class="price-item"><p>Massage (1h)</p> <span>70€</span></div>
+                    <div class="price-item"><p>Rituel complet (1h30)</p> <span>95€</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prestation-gallery container">
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soincorps1 copie.jpg') }}" alt="Détail soin">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soincorps1.jpg') }}" alt="Ambiance cabine">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/soincorps2.jpg') }}" alt="Produits utilisés">
+            </div>
+        </section>
+
+        <section class="prestation-cta">
+            <div class="cta-box">
+                <h2>Prête pour votre moment bien-être ?</h2>
+                <p>Réservez votre créneau en quelques clics.</p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-reservation">
+                    Réserver ma séance
+                </a>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

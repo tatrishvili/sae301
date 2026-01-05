@@ -1,0 +1,309 @@
+@use 'layout' as *;
+
+.prestation-detail {
+    padding-top: 4rem;
+    padding-bottom: 8rem;
+    background-color: $white;
+    width:100%;
+
+
+    .container,
+    .container-nav {
+        max-width: 1100px;
+        margin: 30px auto 0;
+        padding: 0 2rem;
+    }
+
+    // Back link
+    .back-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: 1px solid rgba($secondary-color, 0.1);
+        font-family: $font-title;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        color: $secondary-color;
+        text-decoration: none;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        .arrow {
+            margin-right: 12px;
+            font-size: 1.1rem;
+        }
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $white;
+            transform: translateX(-5px);
+        }
+    }
+
+    // Hero section
+    .prestation-hero {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin: 4rem 0 8rem 0;
+        padding: 0 5% 0 8%;
+
+        &__content {
+            flex: 1.2;
+
+            .category-tag {
+                color: $primary-color;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 2px;
+                font-size: 0.85rem;
+                display: block;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-family: $font-heading;
+                font-size: 4.5rem;
+                color: $primary-color;
+                line-height: 1;
+                margin-bottom: 2rem;
+            }
+
+            p {
+                font-family: $font-title;
+                font-size: 1.15rem;
+                max-width: 420px;
+                line-height: 1.7;
+                color: darken($text-dark, 20%);
+            }
+
+            .btn-hero-book {
+                display: inline-block;
+                margin-top: 2rem;
+                padding: 0.8rem 2rem;
+                border: 1.5px solid $secondary-color;
+                color: $secondary-color;
+                background: transparent;
+                font-family: $font-title;
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+                border-radius: 50px;
+                text-decoration: none;
+                transition: $transition-smooth;
+
+                &:hover {
+                    background-color: $secondary-color;
+                    color: $white;
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba($secondary-color, 0.2);
+                }
+            }
+        }
+
+        &__image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+
+            img {
+                width: 100%;
+                max-width: 420px;
+                height: 520px;
+                object-fit: cover;
+                border-radius: 120px 0 120px 0;
+                box-shadow: -15px 15px 0 $accent-pink;
+                transition: $transition-smooth;
+            }
+        }
+    }
+
+    // Info section
+    .prestation-info {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 6rem;
+        margin: 8rem auto 10rem auto !important;
+
+        .side-title {
+            font-family: $font-heading;
+            font-size: 2rem;
+            color: $secondary-color;
+            margin-bottom: 2.5rem;
+        }
+
+        &__text {
+            p {
+                font-family: $font-title;
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: darken($text-dark, 20%);
+            }
+
+            .features-list {
+                margin-top: 2rem;
+                list-style: none;
+
+                li {
+                    padding: 1rem 0;
+                    border-bottom: 1px solid rgba($secondary-color, 0.05);
+                    display: flex;
+                    align-items: center;
+                    font-family: $font-title;
+
+                    &::before {
+                        content: "✦";
+                        color: $primary-color;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+
+        &__prices {
+            background: $white;
+            padding: 3.5rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.101);
+            align-self: start;
+
+            .price-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 1.2rem;
+
+                p {
+                    font-family: $font-title;
+                    font-weight: 500;
+                    color: #333;
+                }
+
+                span {
+                    background: $accent-pink;
+                    padding: 6px 16px;
+                    border-radius: 20px;
+                    font-weight: 700;
+                    color: $secondary-color;
+                    font-family: $font-title;
+                    font-size: 0.95rem;
+                }
+            }
+        }
+    }
+
+    // Gallery
+    .prestation-gallery {
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 0 auto 10rem auto !important;
+
+        .gallery-item img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: $transition-smooth;
+
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
+    }
+
+    // CTA Box – smaller, coherent with page
+    .prestation-cta {
+        padding: 0 2rem;
+
+        .cta-box {
+            background: $secondary-color;
+            color: $white;
+            padding: 3rem 2rem; // smaller padding
+            border-radius: 50px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+            box-shadow: 0 15px 30px rgba($secondary-color, 0.2); // smaller shadow
+
+            h2 {
+                font-family: $font-heading;
+                font-size: 2.2rem; // smaller
+                margin-bottom: 1rem;
+            }
+
+            p {
+                font-family: $font-title;
+                font-size: 1rem; // smaller
+                margin-bottom: 2rem;
+                opacity: 0.9;
+            }
+
+            .btn-reservation {
+                background-color: $white;
+                color: $secondary-color;
+                padding: 1rem 3rem; // smaller
+                border-radius: 50px;
+                font-family: $font-title;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1rem; // smaller
+                text-decoration: none;
+                cursor: pointer;
+                display: inline-block;
+                transition: $transition-smooth;
+
+                &:hover {
+                    background: $primary-color;
+                    color: $white;
+                    transform: translateY(-5px);
+                }
+            }
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 992px) {
+    .prestation-hero {
+        flex-direction: column;
+        padding: 0 2rem;
+        text-align: center;
+
+        &__content h1 {
+            font-size: 3.5rem;
+        }
+
+        &__content p {
+            margin: 0 auto;
+        }
+
+        &__image {
+            justify-content: center;
+            margin-top: 3rem;
+
+            img {
+                border-radius: 60px;
+                height: 400px;
+                box-shadow: 0 15px 0 $accent-pink;
+            }
+        }
+    }
+
+    .prestation-info {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        margin: 4rem auto 8rem auto !important;
+    }
+
+    .prestation-gallery {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin-bottom: 8rem !important;
+    }
+}

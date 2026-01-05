@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bubble Glow - Manucure{% endblock %}
+
+{% block body %}
+    <main class="prestation-detail">
+
+        <div class="container-nav">
+            <a href="{{ path('app_service') }}" class="back-link">
+                <span class="arrow">←</span> Toutes les prestations
+            </a>
+        </div>
+
+        <section class="prestation-hero">
+            <div class="prestation-hero__content">
+                <span class="category-tag">Onglerie</span>
+                <h1 class="prestation-hero__title">Manucure</h1>
+                <p class="prestation-hero__subtitle">
+                    Des mains sublimées et des ongles impeccables pour toutes les occasions.
+                </p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-hero-book">
+                    Réserver ce soin
+                </a>
+            </div>
+
+            <div class="prestation-hero__image">
+                <img
+                    src="{{ asset('images/services/ongles.jpg') }}"
+                    alt="Manucure"
+                >
+            </div>
+        </section>
+
+        <section class="prestation-info container">
+            <div class="prestation-info__text">
+                <h3 class="side-title">L'expertise Bubble Glow</h3>
+                <p>
+                    Une mise en beauté complète de vos mains, du limage à la pose de vernis,
+                    dans un confort absolu.
+                </p>
+
+                <ul class="features-list">
+                    <li>Vernis classique ou semi-permanent</li>
+                    <li>Soin des cuticules à l'huile précieuse</li>
+                    <li>Limage de précision</li>
+                </ul>
+            </div>
+
+            <div class="prestation-info__prices">
+                <h3 class="side-title">Tarifs</h3>
+
+                <div class="price-list">
+                    <div class="price-item"><p>Manucure simple</p> <span>25€</span></div>
+                    <div class="price-item"><p>Pose semi-permanent</p> <span>35€</span></div>
+                    <div class="price-item"><p>Dépose + Pose</p> <span>45€</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prestation-gallery container">
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/manucuredetails.jpg') }}" alt="Détail soin">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/cabinetmanucure.jpg') }}" alt="Ambiance cabine">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/manucure3.jpg') }}" alt="Produits utilisés">
+            </div>
+        </section>
+
+        <section class="prestation-cta">
+            <div class="cta-box">
+                <h2>Prête pour votre moment bien-être ?</h2>
+                <p>Réservez votre créneau en quelques clics.</p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-reservation">
+                    Réserver ma séance
+                </a>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}

@@ -15,7 +15,7 @@
         </div>
     </section>
 
-    <section class="presentation" style="padding-top: 0;">
+    <section class="presentation">
         <div class="section-header-dark">
             <h2>Bubble & Glow en quelques mots</h2>
         </div>
@@ -24,69 +24,73 @@
             <img src="{{ asset('images/presentation-title.png') }}" alt="logo-titre">
         </div>
 
-        <div class="text-img">
-            <div class="text">
-                <p>
-                    Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.
-                    L'idée est simple : offrir toute la qualité et le confort d'un institut, directement chez vous.
-                </p>
-                <p>
-                    Plus besoin de vous déplacer ou de caler vos rendez-vous entre deux obligations :
-                    je viens à vous, et tout se passe dans le confort de votre foyer.
-                </p>
-                <p>
-                    Fondé en 2024, Bubble & Glow est né de l'envie de rendre les soins esthétiques
-                    plus accessibles, plus flexibles et plus agréables.
-                </p>
+        <div class="presentation-content">
+            <div class="text-image-wrapper">
+                <div class="text-side">
+                    <p>
+                        Bubble & Glow est un institut de beauté à domicile basé à Troyes et ses alentours.  L’idée est simple : offrir toute la qualité et le confort d’un institut, mais directement chez vous. Plus besoin de vous déplacer ou de caler vos rendez-vous entre deux obligations : je viens à vous, et tout se passe dans le confort de votre foyer.
+                    </p>
+                    <p>
+                        Fondé en 2024, Bubble & Glow est né de l’envie de rendre les soins esthétiques plus accessibles, plus flexibles et plus agréables pour chacun.
+                    </p>
+                    <p>
+                        Manucure, pédicure, soins du visage, épilation, maquillage… chaque prestation est soigneusement pensée pour allier professionnalisme, hygiène et détente, avec une vraie attention portée à vos besoins et à votre rythme de vie.
+                        Mon objectif ? Vous offrir une expérience beauté personnalisée, pratique et sereine, tout en vous permettant de profiter d’un moment pour vous, sans stress, sans déplacements et sans contraintes.
+                    </p>
+                </div>
 
+                <div class="image-side">
+                    <img src="{{ asset('images/presentation-image.png') }}" alt="Produits de beauté Bubble & Glow">
+                </div>
+            </div>
+
+            <div class="button-row">
                 <a href="#" class="btn btn--dark">En savoir plus</a>
             </div>
 
-            <div class="image">
-                <img src="{{ asset('images/presentation-image.png') }}" alt="Produits de beauté Bubble & Glow">
-            </div>
             <div class="little-decorations">
                 <img src="{{ asset('images/bubbles.svg') }}" alt="bubbles">
+            </div>
+
+            <div class="little-decorations-2">
+                <img src="{{ asset('images/bubbles2.svg') }}" alt="bubbles">
             </div>
         </div>
     </section>
 
-    <section class="a-propos" style="padding-top: 0;">
-        <div class="section-header-dark">
-            <h2>Qui je suis</h2>
-        </div>
-
+    <section class="a-propos">
         <div class="text-img">
-            <div class="image">
-                <img src="{{ asset('images/photo-artisan.png') }}" alt="Cindy Leroux">
+            <div class="left-column">
+                <div class="image">
+                    <img src="{{ asset('images/photo-artisan.png') }}" alt="Cindy Leroux">
+                </div>
+
+                <div class="apropos-contact-item">
+                    <img src="{{ asset('images/phone.svg') }}" alt="">
+                    <span>07-23-45-67-89</span>
+                </div>
             </div>
 
-            <div class="text">
+            <div class="right-column">
+                <div class="image-a-propos">
+                    <img src="{{ asset('images/qui-je-suis-title.svg') }}" alt="Qui je suis">
+                </div>
+
                 <p>
-                    Je m’appelle Cindy Leroux, j’ai 35 ans et je suis esthéticienne depuis plus de dix ans.
-                    Passionnée par mon métier, j’ai choisi de proposer mes prestations directement à domicile.
+                    Je m'appelle Cindy Leroux, j'ai 35 ans et je suis esthéticienne depuis plus de dix ans. Passionnée par mon métier, j'ai choisi de proposer mes prestations directement à domicile pour rendre la beauté plus simple, plus accessible et plus confortable pour chacun. Me déplacer chez mes clientes me permet d'offrir un service plus flexible, adapté aux emplois du temps chargés et aux besoins de chacun.
                 </p>
 
                 <p>
-                    J’accorde une grande importance à la qualité, à l’hygiène et au bien-être,
-                    afin de créer des moments de soin où l’on peut vraiment se détendre.
+                    J'accorde beaucoup d'importance à la qualité, à l'hygiène et au bien-être, et j'aime créer des moments de soin où l'on peut vraiment se détendre. Avec Bubble & Glow, mon objectif est de vous offrir l'expérience d'un institut… sans quitter votre maison.
                 </p>
 
-                <div class="apropos-contact">
-                    <div class="apropos-contact-item">
-                        <img src="{{ asset('images/email.svg') }}" alt="">
-                        <span>bubble&glowcontact@gmail.fr</span>
-                    </div>
-
-                    <div class="apropos-contact-item">
-                        <img src="{{ asset('images/phone.svg') }}" alt="">
-                        <span>07 23 45 67 89</span>
-                    </div>
+                <div class="apropos-contact-item">
+                    <img src="{{ asset('images/email.svg') }}" alt="">
+                    <span>bubble&glowcontact@gmail.fr</span>
                 </div>
             </div>
         </div>
     </section>
-
 
     <section class="services" id="services">
         <div class="section-header-dark">
@@ -94,28 +98,30 @@
         </div>
 
         <div class="services-grid">
-            <div class="service">
+            <a href="{{ path('app_soin_visage') }}" class="service">
                 <img src="{{ asset('images/soins.svg') }}" alt="">
                 <p>Soin visage & corps</p>
-            </div>
+            </a>
 
-            <div class="service">
+            <a href="{{ path('app_maquillage') }}" class="service">
                 <img src="{{ asset('images/maquillage.svg') }}" alt="">
                 <p>Maquillage</p>
-            </div>
+            </a>
 
-            <div class="service">
+            <a href="{{ path('app_manucure') }}" class="service">
                 <img src="{{ asset('images/manucure.svg') }}" alt="">
                 <p>Manucure & pédicure</p>
-            </div>
+            </a>
 
-            <div class="service">
+            <a href="{{ path('app_epilation') }}" class="service">
                 <img src="{{ asset('images/epilation.svg') }}" alt="">
                 <p>Épilation</p>
-            </div>
+            </a>
+
         </div>
 
-        <a href="#" class="btn footer-btn">Découvrir tous les soins</a>
+
+        <a href="{{ path('app_service') }}" class="btn footer-btn">Découvrir tous les soins</a>
     </section>
 
     <section class="rdv-section" id="rdv">
@@ -126,16 +132,23 @@
         <div class="rdv-container">
             <div class="rdv-map">
                 <img src="{{ asset('images/map-text.png') }}" alt="Bubble & Glow" class="map-logo">
-                <img src="{{ asset('images/map-aube.png') }}" alt="Zone de déplacement : Aube">
-                <p class="zone-text">Ma zone de déplacement : L’Aube</p>
+
+
+                <a href="{{ path('app_zone_deplacement') }}" class="simple-map-link">
+                    <span class="map-hint">Cliquez pour voir la carte détaillée</span>
+                    <img src="{{ asset('images/map-aube.png') }}" alt="Zone de déplacement : Aube">
+                </a>
+
+                <p class="zone-text">Ma zone de déplacement : L'Aube</p>
             </div>
 
+            <!-- Keep ALL your existing steps exactly as they are -->
             <div class="rdv-steps">
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape1.png') }}" class="step-icon" alt="">
                     <div class="step-text">
                         <h4>Je choisis ma prestation</h4>
-                        <p>Je consulte la liste des services directement sur le site.</p>
+                        <p>Je consulte la liste des services (soins visage, épilation, manucure...) Chaque prestation indique sa durée et son tarif.</p>
                     </div>
                 </div>
 
@@ -143,7 +156,7 @@
                     <img src="{{ asset('images/etape2.png') }}" class="step-icon" alt="">
                     <div class="step-text">
                         <h4>Je sélectionne mon créneau</h4>
-                        <p>Le planning affiche les horaires disponibles dans ma zone.</p>
+                        <p>Le planning en ligne affiche uniquement les horaires disponibles dans ma zone. Je choisis le créneau qui me convient.</p>
                     </div>
                 </div>
 
@@ -151,7 +164,7 @@
                     <img src="{{ asset('images/etape3.png') }}" class="step-icon" alt="">
                     <div class="step-text">
                         <h4>Je confirme mes informations</h4>
-                        <p>Je renseigne mon nom, mon adresse et mon numéro de contact.</p>
+                        <p>Je remplis mon prénom, mon nom, mon adresse pour la prestation à domicile et un numéro de contact.</p>
                     </div>
                 </div>
 
@@ -159,7 +172,7 @@
                     <img src="{{ asset('images/etape4.png') }}" class="step-icon" alt="">
                     <div class="step-text">
                         <h4>Je valide ma réservation</h4>
-                        <p>Je reçois une confirmation par message ou par e-mail.</p>
+                        <p>Je reçois une confirmation par e-mail avec le récapitulatif de la prestation, de la durée, du prix, ainsi que de la date et de l'heure du rendez-vous.</p>
                     </div>
                 </div>
             </div>
@@ -169,6 +182,7 @@
             <a href="#" class="btn btn-rdv">Prendre rendez-vous</a>
         </div>
     </section>
+
 
     <section class="actualites">
         <div class="section-header-dark">
@@ -207,7 +221,7 @@
                 <img src="{{ asset('images/article4.png') }}" alt="Détente">
                 <div class="news-content">
                     <p class="date">Dimanche 7 décembre 2025</p>
-                    <h3>Tendances ongles pour 2026: couleurs,formes,styles</h3>
+                    <h3>Tendances ongles pour 2026: couleurs,formes,styles.</h3>
                     <a href="{{ path('app_blog') }}" class="btn btn--dark">Lire</a>
                 </div>
             </article>
@@ -226,8 +240,8 @@
         <div class="checkerboard-grid">
             <div class="review-text">
                 <h4>Nathalie Bernard</h4>
-                <p>"Travail soigné, résultat au top. Je recommande ! "</p>
-                <img src="{{ asset('images/5-star.png') }}" alt="5 étoiles">
+                <p>"Rien à dire, c’était parfait. Travail soigné, attitude pro, matériel propre. Je reviendrai sans hésiter."</p>
+                <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
             <div class="review-img">
                 <img src="{{ asset('images/avis-photo1.png') }}" alt="">
@@ -238,16 +252,19 @@
             </div>
             <div class="review-text">
                 <h4>Élise Dupont</h4>
-                <p> " Excellente expérience, soins très agréables."</p>
-                <img src="{{ asset('images/5-star.png') }}" alt="5 étoiles">
+                <p>
+                    "Excellente expérience. Le soin était précis, confortable, et le résultat vraiment visible. Je recommande à 100 %."</p>
+                <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
             <div class="review-text">
                 <h4>Sophie Martin</h4>
-                <p>"Service impeccable. Je donnerais un 5/5 sans hésiter : ponctuelle et douce."</p>
+                <p>"Service impeccable. Je donnerais un 5/5 sans hésiter : ponctuelle, douce et très professionnelle. On voit la différence tout de suite."</p>
                 <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
-            <div class="review-img"><img src="{{ asset('images/avis-photo3.png') }}"></div>
+            <div class="review-img"><img src="{{ asset('images/avis-photo3.png') }}" alt="image-avis"></div>
         </div>
     </section>
-
 {% endblock %}
+
+
+

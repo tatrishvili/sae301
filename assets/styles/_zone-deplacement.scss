@@ -1,0 +1,162 @@
+@use 'layout';
+
+/* =====================
+   ZONE DÉPLACEMENT PAGE - SIMPLE VERSION
+===================== */
+
+body{
+    background-color: layout.$accent-pink;
+}
+.zone-page {
+    padding-bottom: 120px;
+}
+
+.zone-content {
+    max-width: 1100px; // Use YOUR preferred width
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+.zone-intro {
+    text-align: center;
+    margin-bottom: 48px;
+
+    h3 {
+        color: layout.$primary-color;
+        font-family: layout.$font-heading;
+        font-size: 1.8rem;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-size: 1.1rem;
+        color: layout.$text-dark;
+        line-height: 1.7;
+    }
+}
+
+.zone-map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 48px;
+
+    iframe {
+        display: block;
+        width: 100%;
+    }
+}
+
+.coverage-stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+    margin-bottom: 48px;
+}
+
+.stat-item {
+    background: linear-gradient(135deg, layout.$accent-pink 0%, layout.$accent-peach 100%);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+    border: 2px solid layout.$primary-color;
+    flex: 1;
+
+    strong {
+        display: block;
+        font-size: 2.5rem;
+        color: layout.$primary-color;
+        font-family: layout.$font-heading;
+        margin-bottom: 8px;
+    }
+
+    span {
+        font-size: 1rem;
+        color: layout.$text-dark;
+    }
+}
+
+.main-cities {
+    margin-bottom: 32px;
+
+    h4 {
+        color: layout.$primary-color;
+        font-family: layout.$font-heading;
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+}
+
+.city-list {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.city-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background-color: layout.$accent-pink;
+    border-radius: 16px;
+    border: 2px solid layout.$primary-color;
+    flex: 1;
+    min-width: 250px;
+
+    svg {
+        color: layout.$primary-color;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+
+    div {
+        strong {
+            display: block;
+            color: layout.$primary-color;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        span {
+            display: block;
+            color: layout.$text-dark;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+.zone-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 24px;
+    background-color: layout.$accent-pink;
+    border-radius: 16px;
+    border: 2px solid layout.$primary-color;
+    margin-bottom: 48px;
+
+    svg {
+        color: layout.$primary-color;
+        flex-shrink: 0;
+    }
+
+    p {
+        margin: 0;
+        color: layout.$text-dark;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+.zone-actions {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+
+    .btn {
+        min-width: 200px;
+    }
+}

@@ -5,7 +5,9 @@
  * which should already be in your base.html.twig.
  */
 import './css/app.css';
-import './js/script.js';
+import './js/formulaire.js';
+import './js/interactive-map.js';
+import './js/backoffice.js';
 
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

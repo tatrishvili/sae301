@@ -1,0 +1,133 @@
+{% extends 'backoffice_base.html.twig' %}
+
+{% block title %}Back-Office - Bubble & Glow{% endblock %}
+
+{% block body %}
+    <div class="header">
+        <h1>BUBBLE & GLOW - Back Office</h1>
+        <div class="date-today">
+            {{ "now"|date("l d F Y", "Europe/Paris") }}
+        </div>
+    </div>
+
+    <!-- TODAY'S RESERVATIONS -->
+    <div class="today-reservations">
+        <h2>
+            Réservations d'aujourd'hui
+            <span class="today-count" id="todayCount">
+                {{ reservations|filter(r => r.dateReservation is not null and r.dateReservation|date('Y-m-d') == "now"|date('Y-m-d'))|length }}
+            </span>
+        </h2>
+
+        <div class="today-list" id="todayList">
+            {% set hasToday = false %}
+            {% for reservation in reservations %}
+                {% if reservation.dateReservation is not null and reservation.dateReservation|date('Y-m-d') == "now"|date('Y-m-d') %}
+                    {% set hasToday = true %}
+                    <div class="today-item">
+                        <div class="today-item-info">
+                            <div class="today-item-time">{{ reservation.horaire }}</div>
+                            <div class="today-item-client">{{ reservation.prenom }} {{ reservation.nom }}</div>
+                            <div class="today-item-service">
+                                {% if reservation.reservationPrestations|length > 0 %}
+                                    {% for rp in reservation.reservationPrestations %}
+                                        {{ rp.prestation.nom }}{% if rp.precisions %} ({{ rp.precisions }}){% endif %}{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                {% else %}
+                                    -
+                                {% endif %}
+                            </div>
+                        </div>
+                        <span class="status-badge status-{{ reservation.statut|replace({'_':'-'}) }}">
+                            {{ reservation.statut|replace({'_':' '}) }}
+                        </span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            {% if not hasToday %}
+                <div class="no-results">Aucune réservation aujourd'hui</div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- RESERVATIONS TABLE -->
+    <div class="reservations-section">
+        <h2>Toutes les réservations</h2>
+
+        <div class="search-bar">
+            <input type="text" id="searchName" placeholder="Rechercher par nom ou prénom">
+            <input type="text" id="searchEmail" placeholder="Rechercher par email">
+            <button onclick="searchReservations()">Rechercher</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Client</th>
+                <th>Email</th>
+                <th>Prestation(s)</th>
+                <th>Prix</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="reservationsTable">
+            {% for reservation in reservations %}
+                <tr data-id="{{ reservation.id }}">
+                    <td>{{ reservation.dateReservation|date('d/m/Y') }}</td>
+                    <td>{{ reservation.horaire }}</td>
+                    <td>{{ reservation.prenom }} {{ reservation.nom }}</td>
+                    <td>{{ reservation.email }}</td>
+                    <td>
+                        {% if reservation.reservationPrestations|length > 0 %}
+                            {% for rp in reservation.reservationPrestations %}
+                                {{ rp.prestation.nom }}{% if rp.precisions %} ({{ rp.precisions }}){% endif %}{% if not loop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td>{{ reservation.prixTotal is not null ? reservation.prixTotal ~ '€' : '-' }}</td>
+                    <td>
+                            <span class="status-badge status-{{ reservation.statut|replace({'_':'-'}) }}">
+                                {{ reservation.statut|replace({'_':' '}) }}
+                            </span>
+                    </td>
+                    <td>
+                        <div class="action-buttons">
+                            {% if reservation.statut == 'en_attente' %}
+                                <button class="btn-validate" onclick="validateReservation({{ reservation.id }})">✓</button>
+                            {% endif %}
+                            {% if reservation.statut != 'annulee' %}
+                                <button class="btn-cancel" onclick="cancelReservation({{ reservation.id }})">✗</button>
+                            {% endif %}
+                            <button class="btn-details" onclick="showDetails({{ reservation.id }})">Voir</button>
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="8" class="no-results">Aucune réservation trouvée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODAL DETAILS -->
+    <div class="modal" id="detailsModal" onclick="closeModal(event)">
+        <div class="modal-content" id="modalDetails" onclick="event.stopPropagation()">
+            <!-- Content will be filled by JavaScript -->
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        // Pass reservations data from PHP to JavaScript
+        const reservations = {{ jsReservations|raw }};
+    </script>
+    <script src="{{ asset('js/backoffice.js') }}"></script>
+{% endblock %}

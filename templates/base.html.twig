@@ -2,26 +2,30 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} Bubble & Glow{% endblock %}</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>{% block title %}Bubble & Glow{% endblock %}</title>
+
+    {# AssetMapper: loads app.js + CSS + all imports #}
+    {{ importmap('app') }}
+
     {% block styles %}{% endblock %}
 </head>
+
 <body>
 <header class="header">
     <nav class="nav-container">
-        <a href="{{ path('app_accueil')}}" class="logo">
-            <img src="{{ asset('images/header-logo.svg') }}" alt="Instagram">
+        <a href="{{ path('app_accueil') }}" class="logo">
+            <img src="{{ asset('images/header-logo.svg') }}" alt="Bubble & Glow">
         </a>
 
         <ul class="nav-menu" id="navMenu">
             <li><a href="{{ path('app_accueil') }}" class="active">Accueil</a></li>
             <li><a href="{{ path('app_service') }}">Services</a></li>
             <li><a href="{{ path('app_blog') }}">Blog</a></li>
-            {# Highlighted CTA Button #}
             <li>
                 <a href="{{ path('app_formulaire') }}" class="btn-header-cta">Réserver</a>
             </li>
         </ul>
+
         <div class="menu-toggle" id="menuToggle">
             <span></span>
             <span></span>
@@ -29,18 +33,21 @@
         </div>
     </nav>
 </header>
+
 <main>
-    {% block body %} {% endblock %}
+    {% block body %}{% endblock %}
 </main>
+
 
 <footer class="footer">
     <div class="footer-container">
-        <div class="footer-column">
-            <h3>Contact</h3>
-            <p>mail : bubble&glowcontact@gmail.fr</p>
-            <p>téléphone : 07-23-45-67-89</p>
 
-            <h4>Réseaux sociaux</h4>
+        <div class="footer-column">
+            <h2>Contact</h2>
+            <p>Mail : bubble&glowcontact@gmail.com</p>
+            <p>Téléphone : 07 23 45 67 89</p>
+
+            <h3>Réseaux sociaux</h3>
             <div class="socials">
                 <a href="#" class="social">
                     <img src="{{ asset('images/instagram.svg') }}" alt="Instagram">
@@ -51,11 +58,12 @@
                     bubble&glow
                 </a>
             </div>
+
             <a href="#" class="btn footer-btn">Contactez-moi</a>
         </div>
 
         <div class="footer-column">
-            <h3>Prestations</h3>
+            <h2>Prestations</h2>
             <ul>
                 <li>Épilation</li>
                 <li>Soins visage & corps</li>
@@ -64,25 +72,25 @@
             </ul>
         </div>
 
-        <div class="footer-column">
-            <h3>À propos</h3>
+        <div class="footer-column footer-about">
+            <h2>À propos</h2>
             <ul>
                 <li><a href="#">Qui je suis</a></li>
                 <li><a href="#">Prendre rendez-vous</a></li>
                 <li><a href="#">Avis clients</a></li>
                 <li><a href="#">Mentions légales</a></li>
                 <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">CGE</a></li>
+                <li><a href="#">CGV</a></li>
             </ul>
+
+            <div class="footer-logo">
+                <img src="{{ asset('images/logo-footer.svg') }}" alt="Bubble & Glow">
+            </div>
         </div>
-
     </div>
-    <div class="footer-logo">
-        <img src="{{ asset('images/logo-footer.svg') }}" alt="Footer-logo">
-    </div>
-    </div>
-
 </footer>
+{# Block for page-specific JS if needed #}
+{% block javascripts %}{% endblock %}
 </body>
 </html>
 

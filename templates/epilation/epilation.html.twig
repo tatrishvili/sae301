@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bubble Glow - Épilation{% endblock %}
+
+{% block body %}
+    <main class="prestation-detail">
+
+        <div class="container-nav">
+            <a href="{{ path('app_service') }}" class="back-link">
+                <span class="arrow">←</span> Toutes les prestations
+            </a>
+        </div>
+
+        <section class="prestation-hero">
+            <div class="prestation-hero__content">
+                <span class="category-tag">Soins Corps & Visage</span>
+                <h1 class="prestation-hero__title">Épilation</h1>
+                <p class="prestation-hero__subtitle">
+                    Une expérience de douceur absolue, réalisée avec expertise pour une peau soyeuse durablement.
+                </p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-hero-book">
+                    Réserver ce soin
+                </a>
+            </div>
+
+            <div class="prestation-hero__image">
+                <img
+                    src="{{ asset('images/services/epilation.jpg') }}"
+                    alt="Soin épilation">
+            </div>
+        </section>
+
+        <section class="prestation-info container">
+            <div class="prestation-info__text">
+                <h3 class="side-title">L'expertise Bubble Glow</h3>
+                <p>
+                    Nous sélectionnons des cires précieuses, enrichies en agents apaisants,
+                    pour respecter l'équilibre de votre peau. Chaque geste est précis,
+                    rapide et délicat pour transformer ce soin en un moment de confort.
+                </p>
+
+                <ul class="features-list">
+                    <li>Techniques adaptées aux zones sensibles</li>
+                    <li>Huile post-épilation parfumée offerte</li>
+                    <li>Respect strict des normes d'hygiène</li>
+                </ul>
+            </div>
+
+            <div class="prestation-info__prices">
+                <h3 class="side-title">Tarifs</h3>
+
+                <div class="price-list">
+                    <div class="price-item"><p>Sourcils</p> <span>10€</span></div>
+                    <div class="price-item"><p>Maillot classique</p> <span>15€</span></div>
+                    <div class="price-item"><p>Demi-jambes</p> <span>20€</span></div>
+                    <div class="price-item"><p>Jambes complètes</p> <span>35€</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="prestation-gallery container">
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/details.jpg') }}" alt="Détail soin">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/cabine.jpg') }}" alt="Ambiance cabine">
+            </div>
+            <div class="gallery-item">
+                <img src="{{ asset('images/services/cire.jpg') }}" alt="Produits utilisés">
+            </div>
+        </section>
+
+        <section class="prestation-cta">
+            <div class="cta-box">
+                <h2>Prête pour votre moment bien-être ?</h2>
+                <p>Réservez votre créneau en quelques clics.</p>
+
+                <a href="{{ path('app_formulaire') }}" class="btn-reservation">
+                    Réserver ma séance
+                </a>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
