@@ -1,7 +1,7 @@
-@use 'layout';
+@use 'layout' as *;
 
 .confirmation-container {
-    background: layout.$white;
+    background: $white;
     padding: 40px 30px;
     border-radius: 15px;
     max-width: 400px;
@@ -11,7 +11,7 @@
 .confirmation-container h1 {
     font-family: 'Shrikhand', cursive;
     font-size: 28px;
-    color: layout.$primary-color;
+    color: $primary-color;
     margin-bottom: 20px;
 }
 
@@ -23,8 +23,8 @@
 
 .confirmation-container a {
     text-decoration: none;
-    background: layout.$secondary-color;
-    color: layout.$white;
+    background: $secondary-color;
+    color: $white;
     padding: 12px 25px;
     border-radius: 50px;
     font-weight: 600;
@@ -32,11 +32,11 @@
 }
 
 .confirmation-container a:hover {
-    background: layout.$accent-rose
+    background: $accent-rose
 }
 
 .checkmark {
     font-size: 50px;
-    color: layout.$primary-color;
+    color: $primary-color;
     margin-bottom: 20px;
 }

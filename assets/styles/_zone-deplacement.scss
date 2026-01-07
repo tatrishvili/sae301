@@ -1,18 +1,18 @@
-@use 'layout';
+@use 'layout' as *;
 
 /* =====================
    ZONE DÉPLACEMENT PAGE - SIMPLE VERSION
 ===================== */
 
 body{
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
 }
 .zone-page {
     padding-bottom: 120px;
 }
 
 .zone-content {
-    max-width: 1100px; // Use YOUR preferred width
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 5%;
 }
@@ -22,15 +22,15 @@ body{
     margin-bottom: 48px;
 
     h3 {
-        color: layout.$primary-color;
-        font-family: layout.$font-heading;
+        color: $primary-color;
+        font-family: $font-heading;
         font-size: 1.8rem;
         margin-bottom: 16px;
     }
 
     p {
         font-size: 1.1rem;
-        color: layout.$text-dark;
+        color: $text-dark;
         line-height: 1.7;
     }
 }
@@ -55,24 +55,24 @@ body{
 }
 
 .stat-item {
-    background: linear-gradient(135deg, layout.$accent-pink 0%, layout.$accent-peach 100%);
+    background: linear-gradient(135deg, $accent-pink 0%, $accent-peach 100%);
     padding: 24px;
     border-radius: 16px;
     text-align: center;
-    border: 2px solid layout.$primary-color;
+    border: 2px solid $primary-color;
     flex: 1;
 
     strong {
         display: block;
         font-size: 2.5rem;
-        color: layout.$primary-color;
-        font-family: layout.$font-heading;
+        color: $primary-color;
+        font-family: $font-heading;
         margin-bottom: 8px;
     }
 
     span {
         font-size: 1rem;
-        color: layout.$text-dark;
+        color: $text-dark;
     }
 }
 
@@ -80,8 +80,8 @@ body{
     margin-bottom: 32px;
 
     h4 {
-        color: layout.$primary-color;
-        font-family: layout.$font-heading;
+        color: $primary-color;
+        font-family: $font-heading;
         font-size: 1.5rem;
         margin-bottom: 24px;
         text-align: center;
@@ -100,14 +100,14 @@ body{
     align-items: flex-start;
     gap: 16px;
     padding: 24px;
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     border-radius: 16px;
-    border: 2px solid layout.$primary-color;
+    border: 2px solid $primary-color;
     flex: 1;
     min-width: 250px;
 
     svg {
-        color: layout.$primary-color;
+        color: $primary-color;
         flex-shrink: 0;
         margin-top: 2px;
     }
@@ -115,14 +115,14 @@ body{
     div {
         strong {
             display: block;
-            color: layout.$primary-color;
+            color: $primary-color;
             font-size: 1.1rem;
             margin-bottom: 4px;
         }
 
         span {
             display: block;
-            color: layout.$text-dark;
+            color: $text-dark;
             font-size: 0.9rem;
         }
     }
@@ -133,19 +133,19 @@ body{
     align-items: flex-start;
     gap: 16px;
     padding: 24px;
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     border-radius: 16px;
-    border: 2px solid layout.$primary-color;
+    border: 2px solid $primary-color;
     margin-bottom: 48px;
 
     svg {
-        color: layout.$primary-color;
+        color: $primary-color;
         flex-shrink: 0;
     }
 
     p {
         margin: 0;
-        color: layout.$text-dark;
+        color: $text-dark;
         font-size: 1rem;
         line-height: 1.6;
     }

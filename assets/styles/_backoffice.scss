@@ -1,4 +1,4 @@
-@use 'layout';
+@use 'layout' as *;
 
 .header {
     padding: 20px 50px;
@@ -8,22 +8,22 @@
     align-items: center;
 
     h1 {
-        color: layout.$primary-color;
+        color: $primary-color;
         font-size: 28px;
     }
 
     .btn-go-home {
         padding: 10px 25px;
-        background: layout.$primary-color;
-        color: layout.$white;
+        background: $primary-color;
+        color: $white;
         border-radius: 25px;
         font-weight: 600;
         text-decoration: none;
         transition: all 0.2s;
 
         &:hover {
-            background: darken(layout.$primary-color, 10%);
-            color: layout.$white;
+            background: darken($primary-color, 10%);
+            color: $white;
         }
     }
 
@@ -37,13 +37,13 @@
    TODAY'S RESERVATIONS
 --------------------------- */
 .today-reservations {
-    background: layout.$white;
+    background: $white;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
 
     h2 {
-        color: layout.$primary-color;
+        color: $primary-color;
         margin-bottom: 20px;
         font-size: 22px;
         display: flex;
@@ -51,8 +51,8 @@
         gap: 10px;
 
         .today-count {
-            background: layout.$primary-color;
-            color: layout.$white;
+            background: $primary-color;
+            color: $white;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 16px;
@@ -64,10 +64,10 @@
         gap: 15px;
 
         .today-item {
-            background: layout.$accent-pink;
+            background: $accent-pink;
             padding: 15px;
             border-radius: 10px;
-            border-left: 4px solid layout.$primary-color;
+            border-left: 4px solid $primary-color;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -77,7 +77,7 @@
 
                 .today-item-time {
                     font-weight: bold;
-                    color: layout.$primary-color;
+                    color: $primary-color;
                     font-size: 18px;
                     margin-bottom: 5px;
                 }
@@ -104,14 +104,13 @@
     }
 }
 
-
 .reservations-section {
-    background: layout.$white;
+    background: $white;
     padding: 25px;
     border-radius: 15px;
 
     h2 {
-        color: layout.$primary-color;
+        color: $primary-color;
         margin-bottom: 20px;
         font-size: 22px;
     }
@@ -124,21 +123,21 @@
         input {
             flex: 1;
             padding: 12px 20px;
-            border: 2px solid layout.$accent-pink;
+            border: 2px solid $accent-pink;
             border-radius: 25px;
             font-size: 14px;
             outline: none;
             transition: border 0.3s;
 
             &:focus {
-                border-color: layout.$primary-color;
+                border-color: $primary-color;
             }
         }
 
         button {
             padding: 12px 30px;
-            background: layout.$primary-color;
-            color: layout.$white;
+            background: $primary-color;
+            color: $white;
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -146,7 +145,7 @@
             transition: all 0.2s;
 
             &:hover {
-                background: darken(layout.$primary-color, 10%);
+                background: darken($primary-color, 10%);
             }
         }
     }
@@ -157,8 +156,8 @@
         margin-top: 20px;
 
         thead {
-            background: layout.$primary-color;
-            color: layout.$white;
+            background: $primary-color;
+            color: $white;
         }
 
         th {
@@ -169,11 +168,11 @@
 
         td {
             padding: 15px;
-            border-bottom: 1px solid layout.$accent-pink;
+            border-bottom: 1px solid $accent-pink;
         }
 
         tbody tr:hover {
-            background: layout.$accent-pink;
+            background: $accent-pink;
         }
     }
 
@@ -200,7 +199,7 @@
 
             &.btn-validate {
                 background: #28A745;
-                color: layout.$white;
+                color: $white;
 
                 &:hover {
                     background: #218838;
@@ -209,7 +208,7 @@
 
             &.btn-cancel {
                 background: #DC3545;
-                color: layout.$white;
+                color: $white;
 
                 &:hover {
                     background: #C82333;
@@ -218,7 +217,7 @@
 
             &.btn-details {
                 background: #6C757D;
-                color: layout.$white;
+                color: $white;
 
                 &:hover {
                     background: #5A6268;
@@ -244,7 +243,7 @@
     }
 
     .modal-content {
-        background: layout.$white;
+        background: $white;
         padding: 30px;
         border-radius: 15px;
         max-width: 600px;
@@ -258,10 +257,10 @@
             align-items: center;
             margin-bottom: 20px;
             padding-bottom: 15px;
-            border-bottom: 2px solid layout.$accent-pink;
+            border-bottom: 2px solid $accent-pink;
 
             h3 {
-                color: layout.$primary-color;
+                color: $primary-color;
                 font-size: 24px;
             }
 
@@ -282,7 +281,7 @@
 
             .detail-label {
                 font-weight: 600;
-                color: layout.$primary-color;
+                color: $primary-color;
                 margin-bottom: 5px;
             }
 
@@ -324,13 +323,13 @@
 }
 
 .planning-section {
-    background: layout.$white;
+    background: $white;
     padding: 25px;
     border-radius: 15px;
     margin-top: 30px;
 
     h2 {
-        color: layout.$primary-color;
+        color: $primary-color;
         margin-bottom: 20px;
         font-size: 22px;
     }
@@ -342,12 +341,12 @@
             align-items: center;
             margin-bottom: 15px;
 
-            h3 { font-size: 20px; color: layout.$primary-color; }
+            h3 { font-size: 20px; color: $primary-color; }
             button {
                 padding: 5px 15px;
                 border-radius: 8px;
                 border: none;
-                background: layout.$accent-pink;
+                background: $accent-pink;
                 color: #fff;
                 cursor: pointer;
                 font-weight: 600;
@@ -368,7 +367,7 @@
             .calendar-day {
                 padding: 10px;
                 border-radius: 8px;
-                background: layout.$accent-pink;
+                background: $accent-pink;
                 cursor: pointer;
                 border: none;
                 color: #fff;
@@ -390,13 +389,13 @@
 }
 
 .map-section {
-    background: layout.$white;
+    background: $white;
     padding: 25px;
     border-radius: 15px;
     margin-top: 30px;
 
     h2 {
-        color: layout.$primary-color;
+        color: $primary-color;
         margin-bottom: 15px;
         font-size: 22px;
     }

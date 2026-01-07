@@ -1,4 +1,4 @@
-@use 'layout';
+@use 'layout' as *;
 @use 'blog';
 @use 'formulaire';
 @use 'zone-deplacement';
@@ -15,16 +15,16 @@
 }
 
 body {
-    font-family: layout.$font-body;
-    background-color: layout.$accent-pink;
-    color: layout.$text-dark;
+    font-family: $font-body;
+    background-color: $accent-pink;
+    color: $text-dark;
     line-height: 1.6;
     overflow-x: hidden;
     padding-top:90px;
 }
 
 h2, h3, h4 {
-    font-family: layout.$font-title;
+    font-family: $font-title;
     font-weight: normal;
 }
 
@@ -38,14 +38,14 @@ img {
     display: inline-block;
     padding: 16px 45px;
     border-radius: 50px;
-    font-family: layout.$font-title;
+    font-family: $font-title;
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
     border: none;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     background-color: #A73760;
-    color: layout.$white;
+    color: $white;
     font-size: 1rem;
 }
 
@@ -53,8 +53,8 @@ img {
 
 
 .btn-rdv {
-    background-color: layout.$btn-rdv;
-    color: layout.$white;
+    background-color: $btn-rdv;
+    color: $white;
     font-size: 1.5rem;
     padding: 20px 80px;
     border-radius: 50px;
@@ -62,14 +62,14 @@ img {
     text-transform: none;
     &:hover {
         transform: scale(1.05);
-        background-color: darken(layout.$btn-rdv, 5%);
+        background-color: darken($btn-rdv, 5%);
     }
 }
 
 
 .btn--dark {
     background-color: #450a20;
-    color: layout.$white;
+    color: $white;
     padding: 16px 50px;
     font-size: 1.2rem;
     text-transform: none;
@@ -81,8 +81,8 @@ img {
 
 
 .btn--outline1 {
-    background-color: layout.$accent-rose;
-    color: layout.$text-dark;
+    background-color: $accent-rose;
+    color: $text-dark;
     text-transform: uppercase;
     font-weight: bold;
     padding: 25px 45px;
@@ -95,21 +95,21 @@ img {
 }
 
 .btn--outline {
-    border: 2px solid layout.$white;
+    border: 2px solid $white;
     background: transparent;
-    color: layout.$white;
+    color: $white;
     font-weight: bold;
     padding: 25px 45px;
     font-size: 1.1rem;
     &:hover {
-        background-color: layout.$white;
-        color: layout.$primary-color;
+        background-color: $white;
+        color: $primary-color;
     }
 }
 
 .btn-header-cta {
 
-    background-color: layout.$primary-color;
+    background-color: $primary-color;
     color: white !important;
     padding: 10px 30px;
     border-radius: 50px;
@@ -119,7 +119,7 @@ img {
 }
 
 .header {
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     width: 100%;
    padding:15px 60px;
     position: fixed;
@@ -147,11 +147,11 @@ img {
 
         a {
             text-decoration: none;
-            color: layout.$text-dark;
-            font-family: layout.$font-heading;
+            color: $text-dark;
+            font-family: $font-heading;
             font-size: 1.4rem;
             transition: color 0.3s ease;
-            &:hover { color: layout.$primary-color; }
+            &:hover { color: $primary-color; }
         }
     }
 }
@@ -185,13 +185,13 @@ img {
         font-size: 4.5rem;
         line-height: 1.1;
         color: #FFE5D9 !important;
-        font-family: layout.$font-heading;
+        font-family: $font-heading;
         text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
     }
 
     p {
         font-size: 1.8rem;
-        color: layout.$white;
+        color: $white;
         margin: 10px 0 40px;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
     }
@@ -207,14 +207,14 @@ img {
     }
 }
 .section-header-dark {
-    background-color: layout.$primary-color;
+    background-color: $primary-color;
     padding: 35px 0;
     text-align: center;
     margin-bottom: 80px;
 
     h2 {
-        color: layout.$white;
-        font-family: layout.$font-heading;
+        color: $white;
+        font-family: $font-heading;
         margin: 0;
         font-size: 2.2rem;
     }
@@ -222,7 +222,7 @@ img {
 
 
 .presentation {
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     padding-bottom: 80px;
     position: relative;
 
@@ -249,7 +249,7 @@ img {
         align-items: flex-start;
         gap: 50px;
         position: relative;
-        font-family: layout.$font-body;
+        font-family: $font-body;
 
         .text-side {
             flex: 1;
@@ -259,7 +259,7 @@ img {
                 margin-bottom: 20px;
                 font-size: 1rem;
                 line-height: 1.7;
-                color: layout.$text-dark;
+                color: $text-dark;
                 text-align: left;
 
                 &:last-child {
@@ -321,7 +321,7 @@ img {
 
 
 .a-propos {
-    background-color: layout.$white;
+    background-color: $white;
     padding: 120px 5%;
 
     .text-img {
@@ -350,7 +350,7 @@ img {
     .image,
     .image-a-propos,
     p {
-       font-family: layout.$font-body;
+       font-family: $font-body;
     }
 
     .image {
@@ -376,7 +376,7 @@ img {
     p {
         font-size: 1rem;
         line-height: 1.7;
-        color: layout.$text-dark;
+        color: $text-dark;
         margin-bottom: 20px;
         text-align: left;
 
@@ -402,7 +402,7 @@ img {
         span {
             font-weight: 500;
             font-size: 0.95rem;
-            color: layout.$text-dark;
+            color: $text-dark;
             white-space: nowrap;
         }
     }
@@ -418,7 +418,7 @@ img {
 
 
 .services {
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     text-align: center;
     padding-top: 0;
     padding-bottom: 120px;
@@ -458,7 +458,7 @@ img {
         p {
             text-transform: uppercase;
             font-size: 0.9rem;
-            color: layout.$primary-color;
+            color: $primary-color;
             font-weight: 600;
             transition: color 0.3s ease, font-weight 0.3s ease;
             text-align: center;
@@ -477,7 +477,7 @@ img {
         text-decoration: none;
         border-radius: 50px;
         background-color: #A73760;
-        color: layout.$white;
+        color: $white;
         font-weight: 500;
         transition: transform 0.3s ease, background-color 0.3s ease;
 
@@ -502,7 +502,7 @@ img {
 }
 
 .actualites {
-    background-color: layout.$white;
+    background-color: $white;
     padding-top: 0;
     padding-bottom: 120px;
 
@@ -515,7 +515,7 @@ img {
     }
 
     .news-card {
-        background-color: layout.$accent-pink;
+        background-color: $accent-pink;
         border-radius: 20px;
         overflow: hidden;
         padding-bottom: 25px;
@@ -526,10 +526,10 @@ img {
             padding: 20px;
 
             .date {
-                color: layout.$primary-color;
+                color: $primary-color;
                 font-size: 0.9rem;
                 margin-bottom: 10px;
-                text-align: left; // ✅ Left-align date
+                text-align: left;
             }
 
             h3 {
@@ -552,9 +552,7 @@ img {
     .center-btn a.btn--dark { padding: 16px 50px; font-size: 1.2rem; }
 }
 
-/* =====================
-   AVIS CLIENTS
-===================== */
+
 .avis-clients {
     padding-top: 0;
     padding-bottom: 120px;
@@ -567,8 +565,8 @@ img {
     width: 100%;
 
     .review-text {
-        background-color: layout.$primary-color;
-        color: layout.$white;
+        background-color: $primary-color;
+        color: $white;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -599,7 +597,7 @@ img {
 
 
 .rdv-section {
-    background-color: layout.$white;
+    background-color: $white;
     padding-top: 0;
     padding-bottom: 120px;
 
@@ -662,10 +660,10 @@ img {
         }
 
         .zone-text {
-            font-family: layout.$font-heading;
+            font-family: $font-heading;
             font-size: 1.7rem;
             font-weight: 600;
-            color: layout.$text-dark;
+            color: $text-dark;
             margin-top: 50px;
             text-align: center;
         }
@@ -679,7 +677,7 @@ img {
 
         .rdv-step {
             background-color: #3b0a1a;
-            color: layout.$white;
+            color: $white;
             border-radius: 80px;
             padding: 10px 40px 10px 10px;
             display: flex;
@@ -693,7 +691,7 @@ img {
 
             .step-text {
                 h4 {
-                    color: layout.$accent-step;
+                    color: $accent-step;
                     font-weight: 600;
                     margin-bottom: 5px;
                     font-family: Verdana, Geneva, sans-serif;
@@ -719,7 +717,7 @@ img {
 }
 
 .footer {
-    background-color: layout.$accent-pink;
+    background-color: $accent-pink;
     border-top: 1px solid rgba(143, 22, 67, 0.1);
     padding: 60px 40px;
 
@@ -739,17 +737,17 @@ img {
         gap: 12px;
         flex: 1;
 
-        h2, h3 { color: layout.$primary-color; font-family: layout.$font-heading; }
+        h2, h3 { color: $primary-color; font-family:$font-heading; }
         ul { list-style: none; padding: 0; }
 
 
         li, p, a {
             font-size: 0.9rem;
-            color: layout.$text-dark;
+            color: $text-dark;
             text-decoration: none !important;
         }
 
-        a:hover { color: layout.$primary-color; }
+        a:hover { color: $primary-color; }
     }
 
     .socials {
@@ -761,7 +759,7 @@ img {
             align-items: center;
             gap: 8px;
             text-decoration: none !important;
-            color: layout.$text-dark;
+            color: $text-dark;
             img { width: 22px; }
         }
     }

@@ -1,7 +1,7 @@
-@use 'layout';
+@use 'layout' as *;
 
 .contact-split-universe {
-    background-color: layout.$white;
+    background-color: $white;
     padding: 120px 5%;
     position: relative;
     overflow: hidden;
@@ -17,11 +17,11 @@
 
     .form-intro {
         margin-bottom: 40px;
-        .tagline { color: layout.$primary-color; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
-        h2 { font-size: 3.5rem; color: layout.$text-dark; margin: 10px 0;
-            .glow-text { color: layout.$primary-color; }
+        .tagline { color: $primary-color; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h2 { font-size: 3.5rem; color: $text-dark; margin: 10px 0;
+            .glow-text { color: $primary-color; }
         }
-        p { color: layout.$text-dark; opacity: 0.8; line-height: 1.6; }
+        p { color: $text-dark; opacity: 0.8; line-height: 1.6; }
     }
 
     .premium-form {
@@ -33,21 +33,21 @@
             flex-direction: column;
 
             label {
-                font-family: layout.$font-title;
+                font-family: $font-title;
                 font-weight: 700;
-                color: layout.$primary-color;
+                color: $primary-color;
                 font-size: 0.8rem;
                 margin-bottom: 6px;
                 margin-left: 10px;
             }
 
             input, textarea, select {
-                background: layout.$accent-pink;
+                background: $accent-pink;
                 border: 2px solid transparent;
                 border-radius: 20px;
                 padding: 16px 20px;
-                font-family: layout.$font-body;
-                color: layout.$text-dark;
+                font-family: $font-body;
+                color: $text-dark;
                 outline: none;
                 resize: none;
                 transition: all 0.3s ease;
@@ -55,8 +55,8 @@
                 inset -3px -3px 7px rgba(255, 255, 255, 0.7);
 
                 &:focus {
-                    background: layout.$white;
-                    border-color: layout.$accent-rose;
+                    background: $white;
+                    border-color: $accent-rose;
                     transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(143, 22, 67, 0.05);
                 }
@@ -100,14 +100,14 @@
 
         .guardian {
             position: absolute;
-            background: layout.$accent-rose;
+            background: $accent-rose;
             border-radius: 50%;
             filter: blur(30px);
             opacity: 0.3;
             z-index: -1;
         }
         .g-1 { width: 120px; height: 120px; top: 0; right: 0; }
-        .g-2 { width: 180px; height: 180px; bottom: -20px; left: 0; background: layout.$accent-peach; }
+        .g-2 { width: 180px; height: 180px; bottom: -20px; left: 0; background: $accent-peach; }
     }
 }
 
@@ -115,18 +115,18 @@
     width: 100%;
     padding: 20px;
     margin-top: 10px;
-    background: layout.$primary-color;
+    background: $primary-color;
     color: white;
     border: none;
     border-radius: 50px;
-    font-family: layout.$font-title;
+    font-family: $font-title;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover {
-        background: layout.$btn-rdv;
+        background: $btn-rdv;
         transform: scale(1.03);
         box-shadow: 0 10px 25px rgba(143, 22, 67, 0.2);
     }
