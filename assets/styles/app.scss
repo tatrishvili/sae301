@@ -1,12 +1,12 @@
-@use 'layout' as *;
-@use 'blog';
-@use 'formulaire';
-@use 'zone-deplacement';
-@use 'services';
-@use 'service-details';
-@use 'backoffice';
-@use 'confirmation';
-@use 'contact';
+@import 'layout';
+@import 'blog';
+@import 'formulaire';
+@import 'zone-deplacement';
+@import 'services';
+@import 'service-details';
+@import 'backoffice';
+@import 'confirmation';
+@import 'contact';
 
 * {
     box-sizing: border-box;

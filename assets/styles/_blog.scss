@@ -1,4 +1,4 @@
-@use 'layout' as *;
+@import 'layout';
 
 @mixin blog-button($bg-color, $text-color) {
     display: inline-block;
