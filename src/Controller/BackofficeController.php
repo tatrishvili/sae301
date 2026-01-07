@@ -31,7 +31,7 @@ class BackofficeController extends AbstractController
             'statut' => $r->getStatut(),
             'prix' => $r->getPrixTotal(),
             'prestations' => array_map(fn($rp) => $rp->getPrestation()->getNom(), $r->getReservationPrestations()->toArray()),
-            'precisions' => array_map(fn($rp) => $rp->getPrecisions(), $r->getReservationPrestations()->toArray()),
+            'precisions' => array_map(fn($rp) => $rp->getPrecision(), $r->getReservationPrestations()->toArray()),
         ], $reservations);
 
         return $this->render('backoffice/backoffice.html.twig', [

@@ -74,28 +74,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const style = document.createElement('style');
     style.textContent = `
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     `;
     document.head.appendChild(style);
 
-    // CALENDAR
-    let month = 11;
-    let year = 2025;
-    const minDate = { month: 11, year: 2025 };
-    const maxDate = { month: 10, year: 2026 };
+    // ------------------- CALENDAR -------------------
+    const today = new Date();
+    let month = today.getMonth();
+    let year = today.getFullYear();
+
     const monthNames = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
 
     function renderCalendar(month, year) {
         if (!calendarGrid) return;
-
         calendarGrid.innerHTML = "";
         currentMonthYear.textContent = `${monthNames[month]} ${year}`;
 
@@ -118,56 +111,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for (let day = 1; day <= daysInMonth; day++){
             const date = new Date(year, month, day);
-            const dayOfWeek = date.getDay();
             const btn = document.createElement("button");
             btn.type = "button";
             btn.textContent = day;
             btn.classList.add("calendar-day");
 
-            if(dayOfWeek === 0 || dayOfWeek === 6){
+            // Disable past days
+            if(date < today){
                 btn.disabled = true;
                 btn.classList.add("calendar-disabled");
-            } else {
+            }
+            // Disable weekends
+            else if(date.getDay() === 0 || date.getDay() === 6){
+                btn.disabled = true;
+                btn.classList.add("calendar-disabled");
+            }
+            else {
                 btn.addEventListener("click", () => {
                     document.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("selected"));
                     btn.classList.add("selected");
                     dateReservationInput.value = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                 });
             }
+
             calendarGrid.appendChild(btn);
         }
     }
 
-    if (calendarGrid) {
-        renderCalendar(month, year);
+    renderCalendar(month, year);
 
-        const prevMonthBtn = document.getElementById("prevMonth");
-        const nextMonthBtn = document.getElementById("nextMonth");
+    const prevMonthBtn = document.getElementById("prevMonth");
+    const nextMonthBtn = document.getElementById("nextMonth");
 
-        if (prevMonthBtn) {
-            prevMonthBtn.addEventListener("click", () => {
-                let newMonth = month - 1;
-                let newYear = year;
-                if(newMonth < 0){ newMonth = 11; newYear--; }
-                if(newYear < minDate.year || (newYear === minDate.year && newMonth < minDate.month)) return;
-                month = newMonth; year = newYear;
-                renderCalendar(month, year);
-            });
-        }
-
-        if (nextMonthBtn) {
-            nextMonthBtn.addEventListener("click", () => {
-                let newMonth = month + 1;
-                let newYear = year;
-                if(newMonth > 11){ newMonth = 0; newYear++; }
-                if(newYear > maxDate.year || (newYear === maxDate.year && newMonth > maxDate.month)) return;
-                month = newMonth; year = newYear;
-                renderCalendar(month, year);
-            });
-        }
+    if (prevMonthBtn) {
+        prevMonthBtn.addEventListener("click", () => {
+            let newMonth = month - 1;
+            let newYear = year;
+            if(newMonth < 0){ newMonth = 11; newYear--; }
+            // Prevent navigating entirely to past months
+            const firstOfMonth = new Date(newYear, newMonth, 1);
+            if(firstOfMonth < new Date(today.getFullYear(), today.getMonth(), 1)) return;
+            month = newMonth; year = newYear;
+            renderCalendar(month, year);
+        });
     }
 
-    // SERVICES ADD/REMOVE
+    if (nextMonthBtn) {
+        nextMonthBtn.addEventListener("click", () => {
+            let newMonth = month + 1;
+            let newYear = year;
+            if(newMonth > 11){ newMonth = 0; newYear++; }
+            month = newMonth; year = newYear;
+            renderCalendar(month, year);
+        });
+    }
+    // ------------------- END CALENDAR -------------------
+
+    // ------------------- SERVICES ADD/REMOVE -------------------
     document.addEventListener("click", e => {
         if(e.target.classList.contains("add-btn")){
             e.preventDefault();
@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // NAVIGATION
+    // ------------------- NAVIGATION -------------------
     prevBtn.addEventListener("click", (e) => {
         e.preventDefault();
         if(currentStep > 1){ currentStep--; updateStep(); }
@@ -195,9 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextBtn.addEventListener("click", (e) => {
         e.preventDefault();
-
         if(!validateCurrentStep()) return;
-
         if(currentStep === totalSteps){
             if(!paymentValidated){
                 showError("Veuillez valider le paiement avant de confirmer la réservation.");
@@ -206,14 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
             form.submit();
             return;
         }
-
         currentStep++;
         updateStep();
     });
 
     function updateStep(){
         document.querySelectorAll(".form-step").forEach(step => step.classList.remove("active"));
-
         const currentStepElement = document.querySelector(`.form-step[data-step="${currentStep}"]`);
         if (currentStepElement) currentStepElement.classList.add("active");
 
@@ -226,11 +222,10 @@ document.addEventListener("DOMContentLoaded", () => {
         nextBtn.textContent = currentStep === totalSteps ? "Confirmer" : "→";
 
         if(currentStep === 4) updateSummary();
-
         window.scrollTo({top: 0, behavior: "smooth"});
     }
 
-    // VALIDATION
+    // ------------------- VALIDATION -------------------
     function validateCurrentStep(){
         const step = document.querySelector(`.form-step[data-step="${currentStep}"]`);
         if (!step) return false;
@@ -284,7 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return true;
     }
 
-    // SUMMARY
+    // ------------------- SUMMARY -------------------
     function updateSummary(){
         const nom = document.getElementById("nom")?.value || "-";
         const prenom = document.getElementById("prenom")?.value || "-";
@@ -342,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(totalPrice) totalPrice.textContent = `${total}€`;
     }
 
-    // PAYMENT
+    // ------------------- PAYMENT -------------------
     if (payBtn) {
         payBtn.addEventListener("click", (e) => {
             e.preventDefault();
@@ -381,27 +376,27 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // INPUT FORMATTING
-    const cardNumber = document.getElementById("cardNumber");
-    if (cardNumber) {
-        cardNumber.addEventListener("input", () => {
-            cardNumber.value = cardNumber.value.replace(/\D/g, "").slice(0, 16);
+    // ------------------- INPUT FORMATTING -------------------
+    const cardNumberInput = document.getElementById("cardNumber");
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener("input", () => {
+            cardNumberInput.value = cardNumberInput.value.replace(/\D/g, "").slice(0, 16);
         });
     }
 
-    const cardExpiry = document.getElementById("cardExpiry");
-    if (cardExpiry) {
-        cardExpiry.addEventListener("input", () => {
-            let value = cardExpiry.value.replace(/\D/g, "");
+    const cardExpiryInput = document.getElementById("cardExpiry");
+    if (cardExpiryInput) {
+        cardExpiryInput.addEventListener("input", () => {
+            let value = cardExpiryInput.value.replace(/\D/g, "");
             if(value.length >= 3) value = value.slice(0, 2) + "/" + value.slice(2, 4);
-            cardExpiry.value = value;
+            cardExpiryInput.value = value;
         });
     }
 
-    const cardCVC = document.getElementById("cardCVC");
-    if (cardCVC) {
-        cardCVC.addEventListener("input", () => {
-            cardCVC.value = cardCVC.value.replace(/\D/g, "").slice(0, 3);
+    const cardCVCInput = document.getElementById("cardCVC");
+    if (cardCVCInput) {
+        cardCVCInput.addEventListener("input", () => {
+            cardCVCInput.value = cardCVCInput.value.replace(/\D/g, "").slice(0, 3);
         });
     }
 

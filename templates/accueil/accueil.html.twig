@@ -9,7 +9,7 @@
             <p>Institut de Beauté à Domicile</p>
 
             <div class="hero-buttons">
-                <a href="#rdv" class="btn btn--outline1">PRENDRE RENDEZ-VOUS</a>
+                <a href="{{ path('app_formulaire') }}" class="btn btn--outline1">PRENDRE RENDEZ-VOUS</a>
                 <a href="#services" class="btn btn--outline">VOIR LES SERVICES</a>
             </div>
         </div>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="button-row">
-                <a href="#" class="btn btn--dark">En savoir plus</a>
+                <a href="#a-propos" class="btn btn--dark">En savoir plus</a>
             </div>
 
             <div class="little-decorations">
@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <section class="a-propos">
+    <section class="a-propos" id="a-propos">
         <div class="text-img">
             <div class="left-column">
                 <div class="image">
@@ -72,7 +72,7 @@
             </div>
 
             <div class="right-column">
-                <div class="image-a-propos">
+                <div class="image-a-propos" id="qui-je-suis">
                     <img src="{{ asset('images/qui-je-suis-title.svg') }}" alt="Qui je suis">
                 </div>
 
@@ -179,7 +179,7 @@
         </div>
 
         <div class="center-btn">
-            <a href="#" class="btn btn-rdv">Prendre rendez-vous</a>
+            <a href="{{ path('app_formulaire') }}" class="btn btn-rdv">Prendre rendez-vous</a>
         </div>
     </section>
 
@@ -232,7 +232,7 @@
         </div>
     </section>
 
-    <section class="avis-clients">
+    <section class="avis-clients" id="avis">
         <div class="section-header-dark">
             <h2>Avis clients</h2>
         </div>

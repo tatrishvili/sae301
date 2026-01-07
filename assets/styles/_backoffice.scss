@@ -12,13 +12,30 @@
         font-size: 28px;
     }
 
+    .btn-go-home {
+        padding: 10px 25px;
+        background: layout.$primary-color;
+        color: layout.$white;
+        border-radius: 25px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+
+        &:hover {
+            background: darken(layout.$primary-color, 10%);
+            color: layout.$white;
+        }
+    }
+
     .date-today {
         color: #666;
         font-size: 16px;
     }
 }
 
-/* TODAY'S RESERVATIONS */
+/* --------------------------
+   TODAY'S RESERVATIONS
+--------------------------- */
 .today-reservations {
     background: layout.$white;
     padding: 25px;
@@ -81,80 +98,13 @@
                 padding: 5px 15px;
                 border-radius: 15px;
                 font-weight: 600;
-                color: #fff;
                 text-transform: capitalize;
             }
         }
     }
 }
 
-/* PLANNING GRID */
-.planning-section {
-    background: layout.$white;
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 30px;
 
-    .planning-grid {
-        display: grid;
-        grid-template-columns: 80px repeat(7, 1fr);
-        gap: 1px;
-        background: #ddd;
-        border: 1px solid #ddd;
-
-        .planning-cell {
-            background: layout.$white;
-            padding: 10px;
-            min-height: 80px;
-            position: relative;
-        }
-
-        .planning-header-cell {
-            background: layout.$primary-color;
-            color: layout.$white;
-            font-weight: bold;
-            text-align: center;
-            padding: 15px 10px;
-        }
-
-        .planning-time-cell {
-            background: layout.$accent-pink;
-            font-weight: 600;
-            color: layout.$primary-color;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .planning-slot {
-            background: #E8F4F8;
-            border-left: 3px solid layout.$primary-color;
-            padding: 8px;
-            margin: 2px 0;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 12px;
-
-            &:hover {
-                background: #D1E7F0;
-                transform: translateX(2px);
-            }
-
-            .planning-slot-name {
-                font-weight: bold;
-                color: #333;
-            }
-
-            .planning-slot-service {
-                color: #666;
-                font-size: 11px;
-            }
-        }
-    }
-}
-
-/* RESERVATIONS TABLE */
 .reservations-section {
     background: layout.$white;
     padding: 25px;
@@ -193,9 +143,10 @@
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
+            transition: all 0.2s;
 
             &:hover {
-                background: layout.$text-dark;
+                background: darken(layout.$primary-color, 10%);
             }
         }
     }
@@ -277,14 +228,14 @@
     }
 }
 
-/* MODAL DETAILS */
 .modal {
     display: none;
     position: fixed;
-    top:0; left:0;
-    width:100%; height:100%;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0,0,0,0.5);
-    z-index:1000;
+    z-index: 1000;
     align-items: center;
     justify-content: center;
 
@@ -347,4 +298,112 @@
     padding: 40px;
     color: #999;
     font-style: italic;
+}
+
+.btn-close {
+    height: 37px;
+    width: 86px;
+    border: none;
+    background-color: rgba(143, 22, 67, 0.75);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+        background-color: #e0e0e0;
+        color: #8F1643;
+        transform: scale(1.1);
+    }
+}
+
+.planning-section {
+    background: layout.$white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
+
+    h2 {
+        color: layout.$primary-color;
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+    .planning-calendar {
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+
+            h3 { font-size: 20px; color: layout.$primary-color; }
+            button {
+                padding: 5px 15px;
+                border-radius: 8px;
+                border: none;
+                background: layout.$accent-pink;
+                color: #fff;
+                cursor: pointer;
+                font-weight: 600;
+            }
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+
+            .calendar-weekday {
+                font-weight: bold;
+                text-align: center;
+                padding: 5px 0;
+            }
+
+            .calendar-day {
+                padding: 10px;
+                border-radius: 8px;
+                background: layout.$accent-pink;
+                cursor: pointer;
+                border: none;
+                color: #fff;
+                transition: 0.2s;
+
+                &:hover { transform: scale(1.05); }
+
+                &.calendar-blocked {
+                    background: #ccc;
+                    cursor: not-allowed;
+                }
+
+                &:disabled { opacity: 0.5; cursor: not-allowed; }
+            }
+
+            .calendar-empty {}
+        }
+    }
+}
+
+.map-section {
+    background: layout.$white;
+    padding: 25px;
+    border-radius: 15px;
+    margin-top: 30px;
+
+    h2 {
+        color: layout.$primary-color;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    #clientsMap {
+        width: 100%;
+        height: 500px;
+        border-radius: 15px;
+    }
 }

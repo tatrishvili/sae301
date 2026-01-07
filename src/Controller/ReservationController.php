@@ -4,28 +4,23 @@ namespace App\Controller;
 
 use App\Entity\Reservation;
 use App\Entity\ReservationPrestation;
-use App\Repository\ReservationRepository;
 use App\Repository\PrestationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Annotation\Route;
 
 final class ReservationController extends AbstractController
 {
-    // Backoffice page showing all reservations
-    #[Route('/reservation', name: 'app_reservation')]
-    public function index(ReservationRepository $reservationRepository): Response
-    {
-        $reservations = $reservationRepository->findAll();
+    private RequestStack $requestStack;
 
-        return $this->render('backoffice/backoffice.html.twig', [
-            'reservations' => $reservations,
-        ]);
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
     }
 
-    // Form submit route
     #[Route('/reservation/submit', name: 'reservation_submit', methods: ['POST'])]
     public function submit(
         Request $request,
@@ -78,16 +73,14 @@ final class ReservationController extends AbstractController
             $reservationPrestation->setPrestation($prestation);
 
             if (isset($precisions[$index]) && !empty($precisions[$index])) {
-                $reservationPrestation->setPrecisions($precisions[$index]);
+                $reservationPrestation->setPrecision($precisions[$index]);
             }
 
             $reservation->addReservationPrestation($reservationPrestation);
             $totalPrice += $prestation->getPrix();
         }
 
-        // Add extra charge for certain cities
-        $ville = $reservation->getVille();
-        if (in_array($ville, ['Nogent sur Seine', 'Bar sur Aube'])) {
+        if (in_array($reservation->getVille(), ['Nogent sur Seine', 'Bar sur Aube'])) {
             $totalPrice += 5;
         }
 
@@ -96,13 +89,23 @@ final class ReservationController extends AbstractController
         $em->persist($reservation);
         $em->flush();
 
+        // Add flash
+        $request->getSession()->getFlashBag()->add('reservation_created', true);
+
         return $this->redirectToRoute('reservation_confirmation');
     }
 
-    // Confirmation page
     #[Route('/reservation/confirmation', name: 'reservation_confirmation')]
     public function confirmation(): Response
     {
+        $session = $this->requestStack->getSession();
+        $flashBag = $session->getFlashBag();
+
+        // Prevent direct access
+        if (!$flashBag->has('reservation_created')) {
+            return $this->redirectToRoute('home'); // or another safe page
+        }
+
         return $this->render('reservation/confirmation.html.twig', [
             'page_title' => 'Confirmation',
         ]);

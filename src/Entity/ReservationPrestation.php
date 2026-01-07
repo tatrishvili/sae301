@@ -24,6 +24,9 @@ class ReservationPrestation
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $precision = null;
 
+    #[ORM\Column(type: 'float')]
+    private float $prix = 0.0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,17 @@ class ReservationPrestation
     public function setPrecision(?string $precision): self
     {
         $this->precision = $precision;
+        return $this;
+    }
+
+    public function getPrix(): float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
         return $this;
     }
 }

@@ -1,0 +1,138 @@
+@use 'layout';
+
+.contact-split-universe {
+    background-color: layout.$white;
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+
+    .split-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .form-intro {
+        margin-bottom: 40px;
+        .tagline { color: layout.$primary-color; font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; }
+        h2 { font-size: 3.5rem; color: layout.$text-dark; margin: 10px 0;
+            .glow-text { color: layout.$primary-color; }
+        }
+        p { color: layout.$text-dark; opacity: 0.8; line-height: 1.6; }
+    }
+
+    .premium-form {
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        .input-field {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+
+            label {
+                font-family: layout.$font-title;
+                font-weight: 700;
+                color: layout.$primary-color;
+                font-size: 0.8rem;
+                margin-bottom: 6px;
+                margin-left: 10px;
+            }
+
+            input, textarea, select {
+                background: layout.$accent-pink;
+                border: 2px solid transparent;
+                border-radius: 20px;
+                padding: 16px 20px;
+                font-family: layout.$font-body;
+                color: layout.$text-dark;
+                outline: none;
+                resize: none;
+                transition: all 0.3s ease;
+                box-shadow: inset 2px 2px 5px rgba(143, 22, 67, 0.05),
+                inset -3px -3px 7px rgba(255, 255, 255, 0.7);
+
+                &:focus {
+                    background: layout.$white;
+                    border-color: layout.$accent-rose;
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(143, 22, 67, 0.05);
+                }
+            }
+        }
+    }
+    .bubble-side {
+        position: relative;
+        height: 500px;
+
+        .real-bubble {
+            position: absolute;
+            border-radius: 50%;
+            // Realistic Soap-Film Gradient
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), rgba(255, 182, 169, 0.1) 60%);
+            box-shadow:
+                inset 0 0 25px rgba(255, 255, 255, 0.4),
+                inset 10px 0 45px rgba(255, 200, 155, 0.2),
+                inset -10px 0 45px rgba(143, 22, 67, 0.15),
+                0 15px 35px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(1px);
+
+            .reflect {
+                position: absolute;
+                top: 18%;
+                left: 18%;
+                width: 20%;
+                height: 20%;
+                background: rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                filter: blur(1px);
+            }
+        }
+
+        // Animated Bubble Cluster Positions
+        .b-main { width: 260px; height: 260px; top: 15%; left: 10%; animation: float 7s infinite ease-in-out; }
+        .b-secondary { width: 150px; height: 150px; bottom: 10%; right: 5%; animation: float 9s infinite reverse ease-in-out; }
+        .b-small { width: 90px; height: 90px; top: 5%; right: 15%; animation: float 5s infinite ease-in-out; }
+        .b-tiny { width: 45px; height: 45px; bottom: 35%; left: -5%; animation: float 4s infinite ease-in-out; }
+
+        .guardian {
+            position: absolute;
+            background: layout.$accent-rose;
+            border-radius: 50%;
+            filter: blur(30px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        .g-1 { width: 120px; height: 120px; top: 0; right: 0; }
+        .g-2 { width: 180px; height: 180px; bottom: -20px; left: 0; background: layout.$accent-peach; }
+    }
+}
+
+.btn-glow-send {
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    background: layout.$primary-color;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: layout.$font-title;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover {
+        background: layout.$btn-rdv;
+        transform: scale(1.03);
+        box-shadow: 0 10px 25px rgba(143, 22, 67, 0.2);
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-10px, -20px); }
+}

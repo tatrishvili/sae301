@@ -4,113 +4,84 @@
 
 {% block body %}
     <main>
+        {# Latest News Section #}
         <section class="latest-news">
             <div class="section-title-container">
                 <h2 class="section-title">Dernières actualités</h2>
             </div>
 
             <div class="latest-news__grid">
-                {# Paths updated to /blog/ folder #}
-                <img src="{{ asset('images/blog/1.jpg') }}" alt="Soin visage" class="latest-news__item">
-                <img src="{{ asset('images/blog/2.jpg') }}" alt="Maquillage éclatant" class="latest-news__item">
-                <img src="{{ asset('images/blog/3.jpg') }}" alt="Soin détente" class="latest-news__item">
-                <img src="{{ asset('images/blog/4.jpg') }}" alt="Produits cosmétiques" class="latest-news__item">
-                <img src="{{ asset('images/blog/5.jpg') }}" alt="Produit soin" class="latest-news__item">
+                <div class="latest-news__item">
+                    <img src="{{ asset('images/blog/1.jpg') }}" alt="Soin visage">
+                    <span class="latest-news__title">Les erreurs skincare à éviter</span>
+                </div>
+                <div class="latest-news__item">
+                    <img src="{{ asset('images/blog/2.jpg') }}" alt="Maquillage éclatant">
+                    <span class="latest-news__title">Trouver sa teinte de blush parfaite</span>
+                </div>
+                <div class="latest-news__item">
+                    <img src="{{ asset('images/blog/3.jpg') }}" alt="Soin détente">
+                    <span class="latest-news__title">Routine éclat</span>
+                </div>
+                <div class="latest-news__item">
+                    <img src="{{ asset('images/blog/4.jpg') }}" alt="Produits cosmétiques">
+                    <span class="latest-news__title">Cire naturelle</span>
+                </div>
+                <div class="latest-news__item">
+                    <img src="{{ asset('images/blog/5.jpg') }}" alt="Produit soin">
+                    <span class="latest-news__title">Les manucures les plus tendances</span>
+                </div>
             </div>
         </section>
 
+        {# My Tips Section with cards #}
         <section class="my-tips">
             <div class="section-title-container section-title-container--dark">
                 <h2 class="section-title section-title--dark">Mes derniers conseils</h2>
             </div>
 
-            {# --- Category: Soins --- #}
-            <div class="category">
-                <div class="category__header">
-                    <img src="{{ asset('images/blog/picto1.svg') }}" alt="Icône Soins" class="category__icon">
-                    <h3 class="category__title">Soins corps & visage</h3>
-                </div>
-                <div class="category__grid">
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/6.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/7.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/8.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                </div>
-            </div>
+            {% set categories = [
+                {'icon': 'soins.svg', 'title': 'Soins corps & visage', 'cards': [
+                    {'img':'6.jpg','text':'Les meilleurs soins visage à faire chez soi'},
+                    {'img':'7.jpg','text':'Comment connaître son type de peau ?'},
+                    {'img':'8.jpg','text':'Comment choisir sa crème de jour ?'}
+                ]},
+                {'icon': 'maquillage.svg', 'title': 'Maquillage', 'cards': [
+                    {'img':'9.jpg','text':'Comment bien choisir son fond de teint ?'},
+                    {'img':'10.jpg','text':'Comment choisir son blush ?'},
+                    {'img':'11.jpg','text':'Comment faire tenir son maquillage toute la journée ?'}
+                ]},
+                {'icon': 'manucure.svg', 'title': 'Manucure & pédicure', 'cards': [
+                    {'img':'12.jpg','text':'Renforcer ses ongles naturellement : mes conseils maison'},
+                    {'img':'13.jpg','text':'Les teintes de vernis les plus tendances pour 2026'},
+                    {'img':'14.jpg','text':'5 astuces pour des mains et pieds parfaits à la maison'}
+                ]},
+                {'icon': 'epilation.svg', 'title': 'Épilation', 'cards': [
+                    {'img':'15.jpg','text':'5 erreurs à éviter après une épilation'},
+                    {'img':'16.jpg','text':'Comment préparer sa peau pour une épilation parfaite ?'},
+                    {'img':'17.jpg','text':'Poils incarnés : nos solutions douces et efficaces'}
+                ]}
+            ] %}
 
-            {# --- Category: Maquillage --- #}
-            <div class="category">
-                <div class="category__header">
-                    <img src="{{ asset('images/blog/picto2.svg') }}" alt="Icône Maquillage" class="category__icon">
-                    <h3 class="category__title">Maquillage</h3>
-                </div>
-                <div class="category__grid">
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/9.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
+            {% for cat in categories %}
+                <div class="category">
+                    <div class="category__header">
+                        <img src="{{ asset('images/blog/' ~ cat.icon) }}" alt="Icône {{ cat.title }}" class="category__icon">
+                        <h3 class="category__title">{{ cat.title }}</h3>
                     </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/10.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/11.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
+                    <div class="category__grid">
+                        {% for card in cat.cards %}
+                            <div class="category__card">
+                                <div class="card-image">
+                                    <img src="{{ asset('images/blog/' ~ card.img) }}" alt="" class="category__image">
+                                    <span class="card-title">{{ card.text }}</span>
+                                </div>
+                                <a href="#" class="category__link">Voir plus</a>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
-            </div>
-
-            {# --- Category: Manucure --- #}
-            <div class="category">
-                <div class="category__header">
-                    <img src="{{ asset('images/blog/picto3.svg') }}" alt="Icône Manucure" class="category__icon">
-                    <h3 class="category__title">Manucure & pédicure</h3>
-                </div>
-                <div class="category__grid">
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/12.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/13.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/14.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                </div>
-            </div>
-
-            {# --- Category: Épilation --- #}
-            <div class="category">
-                <div class="category__header">
-                    <img src="{{ asset('images/blog/picto4.svg') }}" alt="Icône Épilation" class="category__icon">
-                    <h3 class="category__title">Épilation</h3>
-                </div>
-                <div class="category__grid">
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/15.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/16.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                    <div class="category__card">
-                        <img src="{{ asset('images/blog/17.jpg') }}" class="category__image">
-                        <a href="#" class="category__link">Voir plus</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </section>
     </main>
 {% endblock %}

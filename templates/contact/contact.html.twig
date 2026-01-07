@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact - Bubble & Glow{% endblock %}
+
+{% block body %}
+    <section class="contact-split-universe">
+        <div class="split-container">
+
+            <div class="form-side">
+                <div class="form-intro">
+                    <span class="tagline">Contact & Devis</span>
+                    <h2 class="shrikhand-text">Prête pour votre <br><span class="glow-text">instant Glow</span> ?</h2>
+                    <p>Besoin d'un renseignement ou d'un moment rien qu'à vous ? <br>Remplissez ce formulaire et je vous recontacte sous 24h.</p>
+                </div>
+
+                <form action="https://formspree.io/f/xaqnrydv" method="POST" class="premium-form">
+                    <div class="input-row">
+                        <div class="input-field">
+                            <label>Votre Nom</label>
+                            <input type="text" name="name" placeholder="Ex: Julie Martin" required>
+                        </div>
+                        <div class="input-field">
+                            <label>Votre Email</label>
+                            <input type="email" name="email" placeholder="julie@exemple.fr" required>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Sujet de votre demande</label>
+                        <div class="select-wrapper">
+                            <select name="subject">
+                                <option value="Soin">Question sur un soin</option>
+                                <option value="Evenement">Événement (Mariage, Fête...)</option>
+                                <option value="Cadeau">Carte Cadeau</option>
+                                <option value="Autre">Autre demande</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label>Votre Message</label>
+                        <textarea name="message" placeholder="Comment puis-je vous aidez ?" rows="4" required></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none">
+
+                    <button type="submit" class="btn-glow-send">
+                        Envoyer le message
+                    </button>
+                </form>
+            </div>
+
+            <div class="bubble-side">
+                <div class="bubble-group">
+                    <div class="real-bubble b-main"><div class="reflect"></div></div>
+                    <div class="real-bubble b-secondary"><div class="reflect"></div></div>
+                    <div class="real-bubble b-small"><div class="reflect"></div></div>
+                    <div class="real-bubble b-tiny"><div class="reflect"></div></div>
+
+                    <div class="guardian g-1"></div>
+                    <div class="guardian g-2"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

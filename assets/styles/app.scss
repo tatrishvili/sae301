@@ -6,10 +6,8 @@
 @use 'service-details';
 @use 'backoffice';
 @use 'confirmation';
+@use 'contact';
 
-/* =====================
-   GLOBAL RESET
-===================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +20,7 @@ body {
     color: layout.$text-dark;
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top:90px;
 }
 
 h2, h3, h4 {
@@ -34,12 +33,10 @@ img {
     display: block;
 }
 
-/* =====================
-   BUTTONS
-===================== */
+
 .btn {
     display: inline-block;
-    padding: 16px 45px; // default secondary button size
+    padding: 16px 45px;
     border-radius: 50px;
     font-family: layout.$font-title;
     font-weight: 500;
@@ -47,16 +44,14 @@ img {
     cursor: pointer;
     border: none;
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
-    background-color: #A73760; // fallback
-    color: layout.$white;       // fallback
+    background-color: #A73760;
+    color: layout.$white;
     font-size: 1rem;
 }
 
-/* =====================
-   PRIORITY BUTTONS
-===================== */
 
-/* High priority primary button */
+
+
 .btn-rdv {
     background-color: layout.$btn-rdv;
     color: layout.$white;
@@ -71,7 +66,7 @@ img {
     }
 }
 
-/* Medium priority dark secondary button */
+
 .btn--dark {
     background-color: #450a20;
     color: layout.$white;
@@ -84,13 +79,13 @@ img {
     }
 }
 
-/* Lower priority outlined buttons */
+
 .btn--outline1 {
     background-color: layout.$accent-rose;
     color: layout.$text-dark;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 14px 45px;
+    padding: 25px 45px;
     font-size: 1.1rem;
     &:hover {
         transform: scale(1.05);
@@ -103,9 +98,8 @@ img {
     border: 2px solid layout.$white;
     background: transparent;
     color: layout.$white;
-    text-transform: uppercase;
     font-weight: bold;
-    padding: 14px 45px;
+    padding: 25px 45px;
     font-size: 1.1rem;
     &:hover {
         background-color: layout.$white;
@@ -113,34 +107,33 @@ img {
     }
 }
 
-/* Header CTA button stays unchanged */
 .btn-header-cta {
+
     background-color: layout.$primary-color;
     color: white !important;
-    padding: 8px 25px;
+    padding: 10px 30px;
     border-radius: 50px;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-left: 20px;
 }
 
-/* =====================
-   HEADER
-===================== */
 .header {
     background-color: layout.$accent-pink;
-    padding: 10px 40px;
-    position: sticky;
+    width: 100%;
+   padding:15px 60px;
+    position: fixed;
     top: 0;
     z-index: 1000;
 
     .nav-container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        margin-left: 115px;
-        max-width: 1400px;
-        gap: 200px;
+        width: 100%;
+        max-width: 1800px;
+        margin-left: 135px;
     }
-
     .logo img {
         height: 70px;
         width: auto;
@@ -150,6 +143,8 @@ img {
         display: flex;
         list-style: none;
         gap: 60px;
+        align-items: center;
+
         a {
             text-decoration: none;
             color: layout.$text-dark;
@@ -161,12 +156,11 @@ img {
     }
 }
 
-/* =====================
-   HERO
-===================== */
 .hero {
     position: relative;
     height: 85vh;
+    margin-top: 0;
+    padding-top: 90px;
     background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('../images/hero.png');
     background-size: cover;
     background-position: center;
@@ -212,10 +206,6 @@ img {
         z-index: 1;
     }
 }
-
-/* =====================
-   SECTION HEADERS (FULL WIDTH)
-===================== */
 .section-header-dark {
     background-color: layout.$primary-color;
     padding: 35px 0;
@@ -230,9 +220,6 @@ img {
     }
 }
 
-/* =====================
-   PRESENTATION
-===================== */
 
 .presentation {
     background-color: layout.$accent-pink;
@@ -331,9 +318,7 @@ img {
         }
     }
 }
-/* =====================
-     à propos
-   ===================== */
+
 
 .a-propos {
     background-color: layout.$white;
@@ -362,7 +347,6 @@ img {
         min-height: 100%;
     }
 
-    /* Wrapper for content (everything except contact) */
     .image,
     .image-a-propos,
     p {
@@ -400,7 +384,6 @@ img {
             margin-bottom: 0;
         }
     }
-
 
     .apropos-contact-item {
         display: flex;
@@ -614,12 +597,7 @@ img {
     }
 }
 
-/* =====================
-   RDV SECTION
-===================== */
-/* =====================
-   RDV SECTION
-===================== */
+
 .rdv-section {
     background-color: layout.$white;
     padding-top: 0;
@@ -669,11 +647,11 @@ img {
                 color: white;
                 padding: 8px 16px;
                 border-radius: 20px;
-                font-size: 1rem; // bigger text
+                font-size: 1rem;
                 font-weight: 600;
                 white-space: nowrap;
                 pointer-events: none;
-                opacity: 1; // always visible
+                opacity: 1;
                 text-align: center;
             }
 
@@ -700,7 +678,7 @@ img {
         gap: 25px;
 
         .rdv-step {
-            background-color: #3b0a1a; // keep dark background
+            background-color: #3b0a1a;
             color: layout.$white;
             border-radius: 80px;
             padding: 10px 40px 10px 10px;
@@ -740,10 +718,6 @@ img {
     }
 }
 
-
-/* =====================
-   FOOTER
-===================== */
 .footer {
     background-color: layout.$accent-pink;
     border-top: 1px solid rgba(143, 22, 67, 0.1);
@@ -755,7 +729,7 @@ img {
         display: flex;
         justify-content: space-between;
         gap: 80px;
-        padding-left:115px;
+        padding-left: 115px;
         align-items: flex-start;
     }
 
@@ -767,33 +741,51 @@ img {
 
         h2, h3 { color: layout.$primary-color; font-family: layout.$font-heading; }
         ul { list-style: none; padding: 0; }
-        li, p { font-size: 0.9rem; color: layout.$text-dark; }
+
+
+        li, p, a {
+            font-size: 0.9rem;
+            color: layout.$text-dark;
+            text-decoration: none !important;
+        }
+
+        a:hover { color: layout.$primary-color; }
     }
 
     .socials {
         display: flex;
         gap: 15px;
         margin: 10px 0 20px;
-        .social { display: flex; align-items: center; gap: 8px; text-decoration: none; color: layout.$text-dark;
+        .social {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none !important;
+            color: layout.$text-dark;
             img { width: 22px; }
         }
     }
 
-    .footer-btn { align-self: flex-start; margin-top: 10px; padding: 16px 45px; font-size: 1.1rem; }
+
+    .footer-btn {
+        align-self: flex-start;
+        margin-top: 10px;
+        padding: 16px 45px;
+        font-size: 1.1rem;
+        background-color: #A73760;
+        color: white !important;
+        border-radius: 50px;
+        text-decoration: none !important;
+    }
 
     .footer-about {
-        .footer-logo { margin-top: 25px; img { height: 55px; margin-left: -13px; } }
-        ul a {
-            color: layout.$text-dark;
-            text-decoration: none;
-            &:hover { text-decoration: underline; color: lighten(layout.$text-dark, 5%); }
+        .footer-logo {
+            margin-top: 25px;
+            img { height: 55px; margin-left: -13px; }
         }
     }
 }
 
-/* =====================
-   FLEX CENTER HELPERS
-===================== */
 .center-btn {
     display: flex;
     justify-content: center;

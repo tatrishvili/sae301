@@ -26,19 +26,19 @@
                 <div class="form-step active" data-step="1">
                     <h2>Entrez vos informations personnelles</h2>
                     <div class="form-group">
-                        <input type="text" id="nom" name="nom" placeholder="NOM" required>
+                        <input type="text" id="nom" name="nom" placeholder="Dupont" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="prenom" name="prenom" placeholder="PRÉNOM" required>
+                        <input type="text" id="prenom" name="prenom" placeholder="Marie" required>
                     </div>
                     <div class="form-group">
                         <div class="phone-group">
                             <input type="text" class="phone-prefix" value="+33" readonly>
-                            <input type="tel" id="telephone" name="telephone" placeholder="NUMÉRO DE TÉLÉPHONE" required>
+                            <input type="tel" id="telephone" name="telephone" placeholder="6 12 34 56 78" inputmode="numeric" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="ADRESSE MAIL" required>
+                        <input type="email" id="email" name="email" placeholder="marie.dupont@exemple.fr" required>
                     </div>
                 </div>
 
@@ -57,12 +57,12 @@
                             <div class="service-selector">
                                 <select class="prestation" name="prestations[]" required>
                                     <option value="">Choisissez une prestation</option>
-                                    <option value="manucure">MANUCURE</option>
-                                    <option value="pedicure">PÉDICURE</option>
-                                    <option value="soin-visage">SOIN VISAGE</option>
-                                    <option value="maquillage">MAQUILLAGE</option>
-                                    <option value="soin-corps">SOIN CORPS</option>
-                                    <option value="epilation">ÉPILATION</option>
+                                    <option value="manucure">MANUCURE (45€)</option>
+                                    <option value="pedicure">PÉDICURE (40€)</option>
+                                    <option value="soin-visage">SOIN VISAGE (60€)</option>
+                                    <option value="maquillage">MAQUILLAGE (50€)</option>
+                                    <option value="soin-corps">SOIN CORPS (70€)</option>
+                                    <option value="epilation">ÉPILATION (20€)</option>
                                 </select>
                                 <button type="button" class="add-btn">+</button>
                                 <button type="button" class="remove-btn">-</button>
@@ -75,7 +75,7 @@
                     <div class="calendar">
                         <div class="calendar-header">
                             <button type="button" class="calendar-nav" id="prevMonth">◄</button>
-                            <h3 id="currentMonthYear">Décembre 2025</h3>
+                            <h3 id="currentMonthYear">Janvier 2026</h3>
                             <button type="button" class="calendar-nav" id="nextMonth">►</button>
                         </div>
                         <div class="calendar-grid" id="calendarGrid"></div>
@@ -100,20 +100,20 @@
                     <h2>Entrez votre adresse postale</h2>
                     <div class="form-group">
                         <label for="adresse">Adresse*</label>
-                        <input type="text" id="adresse" name="adresse" required>
+                        <input type="text" id="adresse" name="adresse" placeholder="12 rue de la Paix" required>
                     </div>
                     <div class="form-group">
                         <label for="complement">Complément d'adresse</label>
-                        <input type="text" id="complement" name="complement" placeholder="Étage, bâtiment...">
+                        <input type="text" id="complement" name="complement" placeholder="Bâtiment B, 3ème étage...">
                     </div>
                     <div class="two-cols">
                         <div class="form-group">
                             <label for="codePostal">Code postal*</label>
-                            <input type="text" id="codePostal" name="code_postal" required>
+                            <input type="text" id="codePostal" name="code_postal" placeholder="10000" maxlength="5" inputmode="numeric" required>
                         </div>
                         <div class="form-group">
                             <label for="ville">Ville*</label>
-                            <input type="text" id="ville" name="ville_input" required>
+                            <input type="text" id="ville" name="ville_input" placeholder="Troyes" required>
                         </div>
                     </div>
                 </div>
@@ -131,7 +131,7 @@
                     <div class="recap">
                         <div id="pricesContainer"></div>
                     </div>
-                    <div class="price-line" style="font-size:1.5em; font-weight:bold;">
+                    <div class="price-line" style="font-size:1.5em; font-weight:bold; color:white; margin-bottom:20px;">
                         <span>Total</span>
                         <span id="totalPrice">0€</span>
                     </div>
@@ -140,16 +140,16 @@
                     <div class="payment-card">
                         <div class="form-group">
                             <label for="cardNumber">Numéro de carte</label>
-                            <input type="text" id="cardNumber" name="cardNumber" placeholder="Numéro de carte" maxlength="16" inputmode="numeric" pattern="[0-9]{16}" required>
+                            <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="16" inputmode="numeric" required>
                         </div>
                         <div class="two-cols">
                             <div class="form-group">
                                 <label for="cardExpiry">Date d'expiration</label>
-                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5" inputmode="numeric" pattern="(0[1-9]|1[0-2])\/[0-9]{2}" required>
+                                <input type="text" id="cardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5" inputmode="numeric" required>
                             </div>
                             <div class="form-group">
                                 <label for="cardCVC">CVC</label>
-                                <input type="text" id="cardCVC" name="cardCVC" placeholder="CVC" maxlength="3" inputmode="numeric" pattern="[0-9]{3}" required>
+                                <input type="text" id="cardCVC" name="cardCVC" placeholder="123" maxlength="3" inputmode="numeric" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -175,4 +175,3 @@
         </div>
     </div>
 {% endblock %}
-

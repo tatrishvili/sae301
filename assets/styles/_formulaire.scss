@@ -1,28 +1,22 @@
 @use 'layout' as *;
 
-
 .formulaire-page {
     background: #fff;
     padding: 2rem 1rem;
     display: flex;
     justify-content: center;
+    min-height: 100vh;
 }
 
-/* ===============================
-   MAIN CONTAINER
-================================ */
 
 .formulaire-container {
     background: $primary-color;
     border-radius: 40px;
-    padding: 50px;
-    max-width: 900px;
+    padding: 40px;
+    max-width: 800px;
     width: 100%;
 }
 
-/* ===============================
-   HEADER / LOGO
-================================ */
 
 .logo-section {
     display: flex;
@@ -32,32 +26,23 @@
 }
 
 .logo img {
-    height: 150px;
+    height: 100px;
     width: auto;
     object-fit: contain;
 }
 
-.logoformu img {
-    height: 70px;
-    width: auto;
-}
-
 .brand-name {
-    font-size: 2.5em;
+    font-size: 1.8em;
     color: white;
     font-weight: bold;
     letter-spacing: 2px;
 }
 
-/* ===============================
-   PROGRESS BAR
-================================ */
-
 .progress-bar {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-bottom: 50px;
+    gap: 8px;
+    margin-bottom: 40px;
 }
 
 .progress-step {
@@ -68,12 +53,17 @@
 .progress-step span {
     display: block;
     color: white;
-    font-size: 0.85em;
+    font-size: 0.7em;
     margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.progress-step.active span {
+    opacity: 1;
 }
 
 .progress-line {
-    height: 8px;
+    height: 6px;
     background: rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     overflow: hidden;
@@ -90,9 +80,6 @@
     width: 100%;
 }
 
-/* ===============================
-   FORM STEPS
-================================ */
 
 .form-step {
     display: none;
@@ -116,68 +103,111 @@
 
 h2 {
     color: white;
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
-/* ===============================
-   FORM ELEMENTS
-================================ */
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
     color: white;
     margin-bottom: 8px;
-    font-size: 1.1em;
+    font-size: 0.9em;
 }
 
 input,
 select {
     width: 100%;
-    padding: 18px 20px;
+    padding: 12px 16px;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
     background: $accent-pink;
-    font-size: 1.1em;
+    font-size: 1em;
     color: $text-dark;
+    transition: all 0.3s;
+
+    &:focus {
+        outline: 2px solid $accent-peach;
+        outline-offset: 2px;
+    }
 }
 
 input::placeholder {
     color: $secondary-color;
+    opacity: 0.7;
 }
-
-/* ===============================
-   LAYOUT HELPERS
-================================ */
 
 .phone-group {
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .phone-prefix {
-    width: 100px;
+    width: 70px;
     flex-shrink: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9) !important;
 }
 
 .two-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 15px;
+}
+
+
+.ville-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+
+    label {
+        padding: 12px 24px;
+        background: rgba(255, 229, 217, 0.4);
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 0.95em;
+        color: white;
+        transition: all 0.3s;
+        margin-bottom: 0;
+        border: 2px solid transparent;
+        font-weight: 500;
+
+        &:hover {
+            background: rgba(255, 229, 217, 0.6);
+            transform: translateY(-2px);
+        }
+
+        &:has(input:checked) {
+            background: $accent-rose;
+            border-color: white;
+            color: $text-dark;
+            font-weight: 600;
+            transform: scale(1.05);
+        }
+
+        input {
+            width: auto;
+            margin-right: 8px;
+            accent-color: $text-dark;
+        }
+    }
 }
 
 /* ===============================
    SERVICES
 ================================ */
-
 .service-selector {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    margin-bottom: 8px;
 }
 
 .service-selector select {
@@ -186,52 +216,88 @@ input::placeholder {
 
 .add-btn,
 .remove-btn {
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background: $accent-rose;
     border: none;
     color: white;
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: pointer;
+    transition: all 0.3s;
+    flex-shrink: 0;
+
+    &:hover {
+        transform: scale(1.1);
+        background: darken($accent-rose, 10%);
+    }
+
+    &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+        transform: scale(1);
+    }
 }
 
-/* ===============================
-   CALENDAR
-================================ */
+.precision {
+    font-size: 0.9em !important;
+}
 
 .calendar {
     background: $accent-pink;
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .calendar-header h3 {
-    font-size: 2em;
+    font-size: 1.1em;
     color: $text-dark;
-    font-family: $font-title;
+    font-weight: bold;
 }
 
 .calendar-nav {
-    background: none;
+    background: $secondary-color;
     border: none;
-    font-size: 2em;
-    color: $text-dark;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: white;
+    font-size: 1em;
     cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: $text-dark;
+        transform: scale(1.1);
+    }
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 6px;
+    text-align: center;
+}
+
+.calendar-weekday {
+    font-size: 0.75em;
+    font-weight: bold;
+    color: $text-dark;
+    padding: 4px 0;
 }
 
 .calendar-day {
@@ -241,110 +307,244 @@ input::placeholder {
     color: white;
     border: none;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85em;
     transition: all 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &:not(.calendar-disabled):hover {
+        background: $text-dark;
+        transform: scale(1.15);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    &.selected {
+        background: $text-dark;
+        box-shadow: 0 0 0 3px $accent-peach;
+        transform: scale(1.1);
+    }
+
+    &.calendar-disabled {
+        background: rgba(200, 200, 200, 0.3);
+        color: #999;
+        cursor: not-allowed;
+        box-shadow: none;
+
+        &:hover {
+            transform: none;
+        }
+    }
 }
 
-.calendar-day:hover {
-    background: $text-dark;
-    transform: scale(1.1);
-}
-
-.calendar-day.selected {
-    background: $text-dark;
-}
-
-.calendar-day.calendar-disabled {
-    background: rgba(200, 200, 200, 0.5);
-    color: #888;
-    cursor: not-allowed;
+.calendar-empty {
+    aspect-ratio: 1;
 }
 
 /* ===============================
-   SUMMARY & PAYMENT
+   SUMMARY & RECAP
 ================================ */
-
 .summary-section {
     background: $text-dark;
     padding: 25px;
-    border-radius: 20px;
-    margin-bottom: 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
 
 .summary-line {
     color: $text-light;
     margin: 10px 0;
-    font-size: 1.1em;
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+.recap {
+    background: $accent-pink;
+    padding: 20px;
+    border-radius: 15px;
+    color: $text-dark;
+    margin-bottom: 20px;
+
+    h3 {
+        color: $text-dark;
+        font-size: 1.3em;
+        margin-bottom: 15px;
+    }
 }
 
 .price-line {
     display: flex;
     justify-content: space-between;
-    color: white;
-    font-size: 1.2em;
-    padding: 15px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    color: $text-dark;
+    font-size: 0.95em;
+    padding: 8px 0;
+
+    &.total-line {
+        font-size: 1.4em;
+        font-weight: bold;
+        padding-top: 15px;
+        margin-top: 10px;
+        border-top: 2px solid $text-dark;
+    }
 }
+
 
 .payment-card {
     background: $accent-peach;
-    padding: 30px;
-    border-radius: 20px;
-}
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    color: $text-dark;
 
-.payment-card input {
-    background: white;
-}
+    h3 {
+        color: $text-dark;
+        margin-bottom: 20px;
+    }
 
-.payment-card .two-cols {
-    grid-template-columns: 2fr 1fr;
+    label {
+        color: $text-dark;
+        font-weight: 600;
+    }
+
+    input {
+        background: white;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
 }
 
 .validate-btn {
-    background: $secondary-color;
+    width: 100%;
+    padding: 14px;
+    background: $primary-color;
     color: white;
-    padding: 12px 40px;
     border: none;
-    border-radius: 25px;
+    border-radius: 12px;
     font-size: 1.1em;
+    font-weight: bold;
     cursor: pointer;
-    display: block;
-    margin: 0 auto;
+    transition: all 0.3s;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover:not(:disabled) {
+        background: darken($primary-color, 8%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    &:disabled {
+        background: #e0e0e0;
+        color: #999;
+        cursor: not-allowed;
+        box-shadow: none;
+    }
 }
 
 .payment-message {
     margin-top: 15px;
-    color: $text-dark;
-    font-weight: 600;
     text-align: center;
+    font-size: 1em;
+    font-weight: 600;
 }
 
-/* ===============================
-   NAVIGATION
-================================ */
+
+.mini-summary {
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+
+    .logoformu img {
+        max-width: 150px;
+        height: auto;
+    }
+}
 
 .navigation {
     display: flex;
     justify-content: space-between;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .nav-btn {
-    padding: 18px 60px;
+    padding: 12px 40px;
     border: none;
-    border-radius: 30px;
+    border-radius: 25px;
     background: $text-light;
     color: $text-dark;
     font-size: 1.2em;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s;
+    font-weight: bold;
+
+    &:hover:not(:disabled) {
+        background: $accent-rose;
+        transform: translateY(-2px);
+    }
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }
 
-.nav-btn:hover {
-    background: $accent-rose;
-    transform: translateY(-2px);
+
+.error-message {
+    background: white;
+    color: #c62828;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1em;
+    font-weight: 600;
+    border-left: 4px solid #c62828;
+    animation: slideIn 0.3s ease;
 }
 
-.nav-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .formulaire-container {
+        padding: 30px 20px;
+    }
+
+    .two-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .brand-name {
+        font-size: 1.3em;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    .calendar {
+        max-width: 100%;
+    }
+
+    .calendar-grid {
+        gap: 4px;
+    }
+
+    .calendar-day {
+        font-size: 0.8em;
+    }
+
+    .ville-options {
+        flex-direction: column;
+
+        label {
+            text-align: center;
+        }
+    }
 }
