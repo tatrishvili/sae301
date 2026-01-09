@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <title>{% block title %}Bubble & Glow{% endblock %}</title>
 
-    {# AssetMapper: loads app.js + CSS + all imports #}
     {{ importmap('app') }}
 
     {% block styles %}{% endblock %}
 </head>
 
 <body>
+<div class="a11y-toolbar" role="complementary" aria-label="Options d'accessibilité">
+    <button type="button" id="toggle-dark-mode" title="Mode Sombre/Clair">🌓</button>
+    <button type="button" id="toggle-dyslexia" title="Police Dyslexie">Abc</button>
+    <button type="button" id="increase-text" title="Agrandir le texte">A+</button>
+    <button type="button" id="reset-a11y" title="Réinitialiser">↩︎</button>
+</div>
+
 <header class="header">
     <nav class="nav-container">
         <a href="{{ path('app_accueil') }}" class="logo">
-            <img src="{{ asset('images/header-logo.svg') }}" alt="Bubble & Glow">
+            <img src="{{ asset('images/header-logo.svg') }}" class="logo-light" alt="Bubble & Glow">
+            <img src="{{ asset('images/logo-dark.svg') }}" class="logo-dark" alt="Logo Bubble & Glow">
         </a>
 
         <ul class="nav-menu" id="navMenu">
@@ -37,7 +44,6 @@
 <main>
     {% block body %}{% endblock %}
 </main>
-
 
 <footer class="footer">
     <div class="footer-container">
@@ -63,7 +69,7 @@
         </div>
 
         <div class="footer-column">
-            <h2>Prestations</h2>
+            <h2>Services</h2>
             <ul>
                 <li>Épilation</li>
                 <li>Soins visage & corps</li>
@@ -75,9 +81,9 @@
         <div class="footer-column footer-about">
             <h2>À propos</h2>
             <ul>
-                <li><a href="#qui-je-suis">Qui je suis</a></li>
+                <li><a href="#">Qui je suis</a></li>
                 <li><a href="{{ path('app_formulaire') }}">Prendre rendez-vous</a></li>
-                <li><a href="#avis">Avis clients</a></li>
+                <li><a href="#">Avis clients</a></li>
                 <li><a href="#">Mentions légales</a></li>
                 <li><a href="#">Politique de confidentialité</a></li>
                 <li><a href="#">CGV</a></li>
@@ -89,8 +95,8 @@
         </div>
     </div>
 </footer>
-{# Block for page-specific JS if needed #}
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script type="module" src="{{ asset('js/accessibility.js') }}"></script>
+{% endblock %}
 </body>
 </html>
-

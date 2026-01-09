@@ -59,6 +59,8 @@
     </section>
 
     <section class="a-propos" id="a-propos">
+        <h2 class="sr-only">À propos de moi</h2>
+
         <div class="text-img">
             <div class="left-column">
                 <div class="image">
@@ -72,7 +74,7 @@
             </div>
 
             <div class="right-column">
-                <div class="image-a-propos" id="qui-je-suis">
+                <div class="image-a-propos">
                     <img src="{{ asset('images/qui-je-suis-title.svg') }}" alt="Qui je suis">
                 </div>
 
@@ -85,7 +87,7 @@
                 </p>
 
                 <div class="apropos-contact-item">
-                    <img src="{{ asset('images/email.svg') }}" alt="">
+                    <img src="{{ asset('images/email.svg') }}" alt="Email">
                     <span>bubble&glowcontact@gmail.fr</span>
                 </div>
             </div>
@@ -117,9 +119,7 @@
                 <img src="{{ asset('images/epilation.svg') }}" alt="">
                 <p>Épilation</p>
             </a>
-
         </div>
-
 
         <a href="{{ path('app_service') }}" class="btn footer-btn">Découvrir tous les soins</a>
     </section>
@@ -133,7 +133,6 @@
             <div class="rdv-map">
                 <img src="{{ asset('images/map-text.png') }}" alt="Bubble & Glow" class="map-logo">
 
-
                 <a href="{{ path('app_zone_deplacement') }}" class="simple-map-link">
                     <span class="map-hint">Cliquez pour voir la carte détaillée</span>
                     <img src="{{ asset('images/map-aube.png') }}" alt="Zone de déplacement : Aube">
@@ -142,12 +141,11 @@
                 <p class="zone-text">Ma zone de déplacement : L'Aube</p>
             </div>
 
-            <!-- Keep ALL your existing steps exactly as they are -->
             <div class="rdv-steps">
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape1.png') }}" class="step-icon" alt="">
                     <div class="step-text">
-                        <h4>Je choisis ma prestation</h4>
+                        <h3>Je choisis ma prestation</h3>
                         <p>Je consulte la liste des services (soins visage, épilation, manucure...) Chaque prestation indique sa durée et son tarif.</p>
                     </div>
                 </div>
@@ -155,7 +153,7 @@
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape2.png') }}" class="step-icon" alt="">
                     <div class="step-text">
-                        <h4>Je sélectionne mon créneau</h4>
+                        <h3>Je sélectionne mon créneau</h3>
                         <p>Le planning en ligne affiche uniquement les horaires disponibles dans ma zone. Je choisis le créneau qui me convient.</p>
                     </div>
                 </div>
@@ -163,7 +161,7 @@
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape3.png') }}" class="step-icon" alt="">
                     <div class="step-text">
-                        <h4>Je confirme mes informations</h4>
+                        <h3>Je confirme mes informations</h3>
                         <p>Je remplis mon prénom, mon nom, mon adresse pour la prestation à domicile et un numéro de contact.</p>
                     </div>
                 </div>
@@ -171,7 +169,7 @@
                 <div class="rdv-step">
                     <img src="{{ asset('images/etape4.png') }}" class="step-icon" alt="">
                     <div class="step-text">
-                        <h4>Je valide ma réservation</h4>
+                        <h3>Je valide ma réservation</h3>
                         <p>Je reçois une confirmation par e-mail avec le récapitulatif de la prestation, de la durée, du prix, ainsi que de la date et de l'heure du rendez-vous.</p>
                     </div>
                 </div>
@@ -182,7 +180,6 @@
             <a href="{{ path('app_formulaire') }}" class="btn btn-rdv">Prendre rendez-vous</a>
         </div>
     </section>
-
 
     <section class="actualites">
         <div class="section-header-dark">
@@ -221,7 +218,7 @@
                 <img src="{{ asset('images/article4.png') }}" alt="Détente">
                 <div class="news-content">
                     <p class="date">Dimanche 7 décembre 2025</p>
-                    <h3>Tendances ongles pour 2026: couleurs,formes,styles.</h3>
+                    <h3>Tendances ongles pour 2026: couleurs, formes, styles.</h3>
                     <a href="{{ path('app_blog') }}" class="btn btn--dark">Lire</a>
                 </div>
             </article>
@@ -232,14 +229,14 @@
         </div>
     </section>
 
-    <section class="avis-clients" id="avis">
+    <section class="avis-clients">
         <div class="section-header-dark">
             <h2>Avis clients</h2>
         </div>
 
         <div class="checkerboard-grid">
             <div class="review-text">
-                <h4>Nathalie Bernard</h4>
+                <h3>Nathalie Bernard</h3>
                 <p>"Rien à dire, c’était parfait. Travail soigné, attitude pro, matériel propre. Je reviendrai sans hésiter."</p>
                 <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
@@ -251,20 +248,18 @@
                 <img src="{{ asset('images/avis-photo-2.png') }}" alt="">
             </div>
             <div class="review-text">
-                <h4>Élise Dupont</h4>
-                <p>
-                    "Excellente expérience. Le soin était précis, confortable, et le résultat vraiment visible. Je recommande à 100 %."</p>
+                <h3>Élise Dupont</h3>
+                <p>"Excellente expérience. Le soin était précis, confortable, et le résultat vraiment visible. Je recommande à 100 %."</p>
                 <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
             <div class="review-text">
-                <h4>Sophie Martin</h4>
+                <h3>Sophie Martin</h3>
                 <p>"Service impeccable. Je donnerais un 5/5 sans hésiter : ponctuelle, douce et très professionnelle. On voit la différence tout de suite."</p>
                 <img src="{{ asset('images/5-star.png') }}" alt="stars" class="stars-png">
             </div>
-            <div class="review-img"><img src="{{ asset('images/avis-photo3.png') }}" alt="image-avis"></div>
+            <div class="review-img">
+                <img src="{{ asset('images/avis-photo3.png') }}" alt="image-avis">
+            </div>
         </div>
     </section>
 {% endblock %}
-
-
-

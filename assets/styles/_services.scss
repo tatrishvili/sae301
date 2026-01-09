@@ -1,88 +1,102 @@
-@import 'layout' ;
+@import 'layout';
 
 .prestations {
     background-color: $white;
-    padding: 3rem 0;
+    padding: 4rem 0;
 }
-
 
 .prestations-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
-
 
 .prestations-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     h1 {
         font-family: "Shrikhand", cursive;
         font-weight: 700;
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         color: $primary-color;
         margin: 0;
+        letter-spacing: 1px;
     }
 }
 
-/* GRID — GAP REDUCED (YOUR REQUEST) */
+/* GRID — RESPONSIVE AND CLEAN */
 .prestations-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows:1fr;
-    gap: 1rem 1.2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
     align-items: stretch;
-
 }
 
-
+/* CARD STYLING */
 .prestation {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height:100%;
+    text-align: center;
     text-decoration: none;
     color: inherit;
-    text-align: center;
-    transition: transform 0.3s ease;
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 
     &:hover {
-        transform: translateY(-4px);
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     }
 }
-
 
 .prestation-img {
     width: 100%;
-    max-width: 260px;
     height: 220px;
-    margin: 0 auto 0.8rem;
-    border-radius: 25px;
     overflow: hidden;
 
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    /* subtle zoom effect on hover */
+    .prestation:hover & img {
+        transform: scale(1.08);
     }
 }
 
-
 .prestation-title {
     font-family: "Shrikhand", cursive;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     color: $text-dark;
-    margin-bottom: 0.4rem;
+    margin: 1rem 0 0.5rem;
 }
-
 
 .prestation-desc {
     font-family: $font-title;
-    font-size: 0.95rem;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: 1.5;
     color: $secondary-color;
-    max-width: 260px;
-    margin: 0 auto;
+    padding: 0 1rem 1.5rem;
+}
+
+/* RESPONSIVE ADJUSTMENTS */
+@media screen and (max-width: 768px) {
+    .prestations {
+        padding: 3rem 0;
+    }
+
+    .prestations-title h1 {
+        font-size: 2.2rem;
+    }
+
+    .prestation-img {
+        height: 200px;
+    }
 }

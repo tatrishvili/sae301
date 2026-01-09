@@ -1,0 +1,270 @@
+@import 'layout';
+
+.a11y-toolbar {
+    position: fixed;
+    top: 150px;
+    right: 20px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: $white;
+    padding: 12px;
+    border-radius: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid $primary-color;
+
+    button {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background-color: $primary-color;
+        color: $white;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            transform: scale(1.1);
+            background-color: $secondary-color;
+        }
+    }
+}
+
+.logo {
+    .logo-dark {
+        display: none;
+    }
+}
+
+body.dark-mode {
+    background-color: $btn-rdv;
+    color: $accent-pink;
+
+    .logo {
+        .logo-light {
+            display: none;
+        }
+        .logo-dark {
+            display: inline-block;
+            height: 70px;
+            width: auto;
+        }
+    }
+
+    .header {
+        background-color: $btn-rdv;
+        border-bottom: 1px solid rgba($primary-color, 0.3);
+        .nav-menu a { color: $accent-pink; }
+    }
+
+    .services,
+    .footer,
+    .presentation {
+        background-color: $accent-pink;
+        h2, h3, h4, p, span, li, a {
+            color: $text-dark;
+        }
+    }
+
+    .section-header-dark {
+        background-color: $primary-color;
+        h2 { color: $white; }
+    }
+
+    .a-propos,
+    .actualites,
+    .rdv-section {
+        background-color: $text-dark;
+        h2, h3, p, span, li { color: $accent-pink; }
+    }
+
+    .news-card {
+        background-color: $btn-rdv;
+        border: 1px solid rgba($accent-pink, 0.2);
+    }
+
+    .rdv-step {
+        background-color: #000;
+        border: 1px solid $primary-color;
+    }
+
+    .a11y-toolbar {
+        background-color: $text-dark;
+        border-color: $accent-pink;
+        button {
+            background-color: $accent-pink;
+            color: $btn-rdv;
+        }
+    }
+
+    .prestations {
+        background-color: $btn-rdv;
+        .prestations-title h1 {
+            color: $accent-pink;
+        }
+    }
+
+    .prestation {
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        &:hover {
+            background-color: lighten($text-dark, 5%);
+            border-color: $accent-pink;
+        }
+        h3.prestation-title { color: $primary-color; }
+        p.prestation-desc { color: rgba($accent-pink, 0.8); }
+        .prestation-img img {
+            filter: brightness(0.9) contrast(1.1);
+        }
+    }
+
+    main {
+        background-color: $btn-rdv;
+    }
+
+    .latest-news {
+        background-color: $btn-rdv;
+        .section-title { color: $primary-color; }
+        .latest-news__item .latest-news__title {
+            color: $accent-pink;
+            background: rgba($btn-rdv, 0.7);
+        }
+    }
+
+    .my-tips {
+        background-color: $text-dark;
+        .section-title-container--dark {
+            background-color: $accent-pink;
+            .section-title--dark { color: $primary-color; }
+        }
+    }
+
+    .category {
+        .category__header {
+            border-bottom: 1px solid rgba($accent-pink, 0.2);
+            .category__title { color: $accent-pink; }
+            .category__icon {
+                filter: brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(320deg);
+            }
+        }
+        .category__card {
+            background-color: $accent-pink;
+            border: 1px solid rgba($accent-pink, 0.1);
+            .card-title { color: $accent-pink; }
+            .category__link {
+                color: $accent-rose;
+                &:hover { color: $white; }
+            }
+        }
+    }
+
+    .formulaire-page {
+        background-color: $btn-rdv;
+    }
+
+    .formulaire-container {
+        background-color: $accent-pink;
+        color: $text-dark;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+
+        h2, .brand-name, label { color: $text-dark; }
+
+        .logo {
+            img:first-child, .logo-light, .bubble {
+                display: block !important;
+                filter: none !important;
+            }
+            img.logo-dark, .logo-dark {
+                display: none !important;
+            }
+        }
+
+        .logoformu img {
+            display: block !important;
+            filter: none !important;
+        }
+    }
+
+    .progress-bar {
+        .progress-step {
+            span { color: rgba($text-dark, 0.5); }
+            &.active span { color: $text-dark; font-weight: bold; }
+            .progress-line { background-color: rgba($text-dark, 0.1); }
+            &.active .progress-line-fill { background-color: $primary-color; }
+        }
+    }
+
+    input[type="text"], input[type="tel"], input[type="email"], input[type="password"], select, .time-selector {
+        background-color: $white;
+        border: 1px solid rgba($primary-color, 0.3);
+        color: $text-dark;
+        &::placeholder { color: rgba($text-dark, 0.4); }
+        &:focus {
+            border-color: $primary-color;
+            background-color: $white;
+            outline: none;
+        }
+    }
+
+    .phone-group .phone-prefix {
+        background-color: $primary-color;
+        color: $primary-color;
+    }
+
+    .calendar {
+        background-color: $white;
+        border: 1px solid $primary-color;
+        .calendar-header {
+            background-color: $primary-color;
+            h3, .calendar-nav { color: $white; }
+        }
+        .calendar-grid .day {
+            color: $text-dark;
+            &.selected { background-color: $primary-color; color: $white; }
+            &.today { border: 1px solid $primary-color; }
+        }
+    }
+
+    .summary-section {
+        background-color: rgba($primary-color, 0.05);
+        border: 1px solid $primary-color;
+        .summary-line { color: $text-dark; }
+    }
+
+    .payment-card {
+        background-color: rgba($primary-color, 0.05);
+        border: 1px solid $primary-color;
+    }
+
+    .price-line span { color: $text-dark !important; }
+
+    .navigation .nav-btn {
+        background-color: $primary-color;
+        color: $white;
+        &:hover:not(:disabled) { background-color: $text-dark; }
+    }
+
+    .validate-btn {
+        background-color: $primary-color;
+        color: $white;
+    }
+}
+
+body.dyslexia-mode {
+    * {
+        font-family: Arial, sans-serif !important;
+        letter-spacing: 0.05rem !important;
+        word-spacing: 0.1rem !important;
+    }
+}
+
+body.text-large {
+    font-size: 1.2rem;
+    p, span, li { font-size: 1.1rem; }
+    h1 { font-size: 5rem; }
+    h2 { font-size: 2.8rem; }
+}

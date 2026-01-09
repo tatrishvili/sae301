@@ -34,9 +34,9 @@
             </div>
         </section>
 
-        {# My Tips Section with cards #}
+        {# My Tips Section with dynamic categories and cards #}
         <section class="my-tips">
-            <div class="section-title-container section-title-container--dark">
+            <div class="section-header-dark">
                 <h2 class="section-title section-title--dark">Mes derniers conseils</h2>
             </div>
 
@@ -73,7 +73,7 @@
                         {% for card in cat.cards %}
                             <div class="category__card">
                                 <div class="card-image">
-                                    <img src="{{ asset('images/blog/' ~ card.img) }}" alt="" class="category__image">
+                                    <img src="{{ asset('images/blog/' ~ card.img) }}" alt="{{ card.text }}" class="category__image">
                                     <span class="card-title">{{ card.text }}</span>
                                 </div>
                                 <a href="#" class="category__link">Voir plus</a>

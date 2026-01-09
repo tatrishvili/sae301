@@ -7,6 +7,7 @@
 @import 'backoffice';
 @import 'confirmation';
 @import 'contact';
+@import 'accessibility';
 
 * {
     box-sizing: border-box;
@@ -690,7 +691,7 @@ img {
             }
 
             .step-text {
-                h4 {
+                h3 {
                     color: $accent-step;
                     font-weight: 600;
                     margin-bottom: 5px;
@@ -789,4 +790,16 @@ img {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }

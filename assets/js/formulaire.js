@@ -234,8 +234,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         for(let input of requiredFields){
             if(!input.value || input.value.trim() === ""){
-                const fieldName = input.placeholder || input.name || 'ce champ';
-                showError(`Veuillez remplir ${fieldName}`, input);
+                const fieldName = input.name || 'ce champ';
+                showError(`Veuillez remplir le champ ${fieldName}`, input);
                 return false;
             }
 
